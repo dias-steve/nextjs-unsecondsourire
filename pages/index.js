@@ -8,8 +8,8 @@ export default function Home(props) {
 
   return (
     <div className={styles.container}>
-      <FrontAccessLoginForm />
-      <p> Site en maintenance {props.generalSettings.maintenance_mode.is_activated ? 'oui': 'non'} </p>
+
+      <p> Site en maintenance </p>
     </div>
   )
 }
