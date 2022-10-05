@@ -3,7 +3,8 @@ import authMaintenanceTypes from "./authMaintenance.types"
 export const INITIAL_STATE = {
     auth:{
         is_auth: false,
-        token: null
+        token: null,
+        date_exp: null,
     }
 }
 

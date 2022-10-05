@@ -1,0 +1,114 @@
+@import "../../../styles/variable.scss";
+//variabkle
+$primary-color: $black;
+$primary-color-darker-focus: $primary-color-dark-blue;
+$secondary-color-gray: #3334367b;
+
+$font-label: $font-family-title;
+$font-text: $font-family-body;
+
+$font-weight-label-input: 200;
+$font-weight-text-input: 200;
+
+
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 60px;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 10px 0px;
+
+    
+    &.blackStyle{
+        input, textarea{
+            color: $primary-color !important;
+            border-color:transparent;
+            background-color: rgba(0, 0, 0, 0.225) !important;
+            caret-color: $primary-color;
+        }
+        .label{
+            color: $primary-color-darker-focus !important;
+            
+        }
+        
+    }
+    textarea{
+        resize: none;
+    }
+
+    &.textarea{
+        height: 100%;
+     
+    }
+
+    &.notTextarea{
+        height: 60px;
+    }
+    .label{
+        font-size: 1rem;
+        font-weight: $font-weight-label-input;
+        position: absolute;
+        z-index: 1;
+        transition: 300ms;
+        left: 15px;
+
+       &.upLabel{
+      top: 0px;
+        font-size: 0.7rem;
+      
+       }
+
+       &.notUpLabel{
+     
+       top: 30px;
+        font-size: 0.9rem;
+        color: $secondary-color-gray;
+      
+       }
+       &.onFocus{
+        color: $primary-color-darker-focus;
+       }
+       &.notOnFocus{
+        color: black;
+       }
+
+ 
+        
+    }
+
+
+    .input {
+        margin-top: 20px;
+        border: 3px solid $secondary-color-gray;
+        padding: 10px 15px;
+        border-radius: 20px;
+        z-index: 2;
+        background-color: transparent;
+      
+        border-style: solid ;
+        height: 100%;
+        transition: 300ms;
+        font-size: 1rem;
+        font-weight: $font-weight-text-input;
+        &::placeholder {
+
+            opacity: 0;
+           
+            
+        }
+        &:focus{
+            border-color:$primary-color-darker-focus;
+            outline: none;
+        }
+
+        
+
+
+    }
+
+ 
+}
+

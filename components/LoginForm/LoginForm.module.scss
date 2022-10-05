@@ -1,0 +1,22 @@
+@import "../../styles/variable.scss";
+.global_container{
+    max-width: 300px;
+    background-color: $background-color-pink;
+    padding: 20px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms;
+}
+.form_wrapper{
+
+}
+
+.message{
+
+    &.error{
+        color:red !important;
+    }
+}
