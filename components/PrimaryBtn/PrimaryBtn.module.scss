@@ -34,15 +34,10 @@
 
             .wrapper_svg_heart{
                 scale: 1.2;
-                svg{
-                    fill: white !important;
-                    transition: 300ms;
-                   
-                    path{
-                        stroke: white !important;
-                        transition: 300ms;
-                    }
+                img{
+                    filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(4%) hue-rotate(230deg) brightness(112%) contrast(100%);
                 }
+
                 
             }
         }
@@ -64,6 +59,11 @@
     width: 15px;
     margin-left: 10px;
     transition: 300ms;
+
+    img{
+        height: 100%;
+        width: 100%;
+    }
 
 }
 
