@@ -9,6 +9,12 @@
     justify-content: center;
     align-items: center;
     transition: 300ms;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 .form_wrapper{
 

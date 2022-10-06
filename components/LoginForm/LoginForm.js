@@ -42,9 +42,24 @@ export default function LoginForm() {
     }
   },[id, password]);
 
+  useEffect(() => {
+    if(auth.is_auth){
+      setMessage({text: "", is_error: false});
+      setBtnActived(true);
+    }
+  }, [])
+
+  const cleanFeilds = () => {
+    setId("");
+    setPassword("");
+  }
   const handleClick = () => {
+
     if(isValid()){
+      setIsLoading(true);
+      setMessage({text: "", is_error: false});
       sendID(id, password);
+      
     }
   }
 
@@ -76,12 +91,17 @@ export default function LoginForm() {
           setMessage({
             is_error: false, text: ""
           })
+
+          cleanFeilds();
          
         }else{
           setIsLoading(false);
           setMessage({
             is_error: true, text: "Aucun ticket de cet id et mdp"
           })
+          
+         
+
         }
   
       })
@@ -102,7 +122,9 @@ export default function LoginForm() {
       
       !auth.is_auth ?
       <>
+       <form>
       <div className={styles.form_wrapper}>
+       
         <div
           className={[styles.input_wrapper, styles.input_id_wrapper].join(" ")}
         >
@@ -128,7 +150,7 @@ export default function LoginForm() {
             type="password"
           />
         </div>
-
+   
       </div>
 
       <PrimaryBtn 
@@ -138,8 +160,10 @@ export default function LoginForm() {
             handleClick();
           }}
           notActived={!btnActived}
+          type="submit"
        
         />
+        </form>
         
         </>: 
        
@@ -149,7 +173,7 @@ export default function LoginForm() {
             e.preventDefault();
             handleDisconnect();
           }}
-          notActived={!btnActived}
+        
           color={'blue'}
           noHeart={true}
        

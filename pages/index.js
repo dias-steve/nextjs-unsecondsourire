@@ -9,7 +9,7 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
 
-      <p> Site en maintenance </p>
+      <p> Home page </p>
     </div>
   )
 }

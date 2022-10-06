@@ -18,7 +18,7 @@ const convertColorStyle = (colorText) =>{
 
 }
 
-export default function PrimaryBtn({ label, link, color, onClick, noHeart, notActived }) {
+export default function PrimaryBtn({ label, link, color, onClick, noHeart, notActived, ...otherProps }) {
   return (
     <>
   
@@ -27,6 +27,7 @@ export default function PrimaryBtn({ label, link, color, onClick, noHeart, notAc
           <a>
             <button
               className={styles.btn_container}
+              {...otherProps }
             >
               
               <span dangerouslySetInnerHTML={{ __html: label }} />
@@ -39,7 +40,11 @@ export default function PrimaryBtn({ label, link, color, onClick, noHeart, notAc
           </a>
         </Link>
       ) : (
-        <button className={[styles.btn_container, notActived ? styles.notActived : styles.actived, color ? convertColorStyle(color) : styles.btn_yellow].join(" ")} onClick={!notActived ? (e) => onClick(e) : () =>{}}>
+        <button 
+          className={[styles.btn_container, notActived ? styles.notActived : styles.actived, color ? convertColorStyle(color) : styles.btn_yellow].join(" ")} 
+          onClick={!notActived ? (e) => onClick(e) : (e) =>{ e.preventDefault();}}
+          {...otherProps }
+          >
       
           <span dangerouslySetInnerHTML={{ __html: label }} />
           {!noHeart && 
