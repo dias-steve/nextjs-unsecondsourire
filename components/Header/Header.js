@@ -35,8 +35,9 @@ export default function Header() {
             setIsShow(true);
             setY(window.scrollY);
         } else if (y+100 < window.scrollY) {
-    
-            setIsShow(false);
+            if(!is_show_menu && !is_show_search){
+                setIsShow(false);
+            }
             setY(window.scrollY);
         }
         
