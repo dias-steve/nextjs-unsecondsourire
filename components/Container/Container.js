@@ -1,6 +1,7 @@
 import React from "react";
 import EnMaintenancePage from "../EnMaintenance/EnMaintenancePage";
 import { useDispatch, useSelector } from "react-redux";
+import Header from "../Header/Header";
 
 const mapState = (state) => ({
   auth: state.auth.auth,
@@ -36,7 +37,7 @@ export default function Container(props) {
     />:     
     
     <>
-      <p>Header</p>
+      <Header/>
    
       {props.children}
       <p>footer</p>

@@ -1,10 +1,21 @@
-import Head from 'next/head'
+import React, {useState, useEffect} from 'react';
+import Head from 'next/head';
+import { initializePage } from '../utils/global.utils';
+import { useDispatch, useSelector } from "react-redux";
 
 
 import styles from '../styles/Home.module.scss'
 
+
 export default function Home(props) {
-  console.log(props.generalSettings)
+  const dispatch = useDispatch();
+  /**
+   * Initializing of the page
+   */
+  useEffect(() => {
+    initializePage(dispatch);
+  },[])
+
 
   return (
     <div className={styles.container}>

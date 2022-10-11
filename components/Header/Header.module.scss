@@ -1,0 +1,106 @@
+@import "../../styles/variable.scss";
+.global_container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    transition: 300ms;
+    transform: translateY(-150%);
+    z-index:10;
+    &.isShow{
+        transform: translateY(0);
+    }
+
+    .subMenu_wrapper{
+        background-color: $background-color-blue;
+        position: absolute;
+        width: 100vw;
+        z-index: 1;
+        transition: 500ms;
+       
+        &.up{
+            transform: translateY(-100%)!important;
+            opacity: 0;
+        }
+        &.down{
+            transform: translateY(0%);
+            opacity: 1;
+        
+        }
+      
+    }
+}
+
+.global_content_wrapper{
+    z-index:2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: $max-width-global-content;
+    padding: 10px $padding-global-content-desktop;
+}
+
+.image_wrapper{
+    position: relative !important;
+
+    .image{
+        position: absolute !important;
+    }
+}
+.logo_wrapper{
+    height: 42px;
+    width: 105px;
+    cursor: pointer;
+}
+.btn_container{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .wrapper_icon{
+    
+        padding: 5px ;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        background-color: transparent;
+        margin: 0 2px;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: 300ms;
+        @media (pointer: fine){
+        &:hover{
+            background-color: $primary-color-dark-blue;
+            img{
+                //color white
+                filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(4%) hue-rotate(230deg) brightness(112%) contrast(100%);
+            }
+        }
+    }
+        img{
+            height: 18px;
+            width: 18px;
+        }
+    }
+}
+.menu_burger_wrapper{
+
+    
+
+    img{
+        height: 19px !important;
+        width: 19px !important;
+    }
+}
+
+.menu_cross_wrapper{
+   
+    img{
+        height: 15px !important;
+        width: 15px !important;
+    }
+}
