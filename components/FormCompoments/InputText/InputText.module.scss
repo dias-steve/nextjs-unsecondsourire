@@ -5,7 +5,7 @@ $primary-color-darker-focus: $primary-color-dark-blue;
 $secondary-color-gray: #3334367b;
 
 $font-label: $font-family-title;
-$font-text: $font-family-body;
+$font-text: $font-family-title;
 
 $font-weight-label-input: 200;
 $font-weight-text-input: 200;
@@ -54,6 +54,8 @@ $font-weight-text-input: 200;
         z-index: 1;
         transition: 300ms;
         left: 15px;
+        margin-top: 2px;
+        font-family: $font-label;
 
        &.upLabel{
       top: 0px;
