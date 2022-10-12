@@ -107,8 +107,8 @@ export default function Header() {
             </Link>
             </div>
             <div className={styles.btn_container}>             
-                <div className={[styles.wrapper_icon].join(" ")}>
-                    
+                <div className={[styles.wrapper_icon,styles.wrapper_heart_icon].join(" ")}>
+                    <div className={styles.span_wrapper}><p>Faire un don</p></div>
                     <img src='./heart-black.svg'  />
                 </div>
                 <div className={[styles.wrapper_icon].join(" ")}>
