@@ -89,11 +89,16 @@
         }
         &.wrapper_heart_icon{
             width:140px;
-          
+            @media  screen and (max-width: 350px){
+                width:40px;
+            }
+            
             .span_wrapper{
                 
                 
-           
+                @media  screen and (max-width: 350px){
+                    display: none;
+                }
                 transition: 300ms;
                 width: 0px;
                 height: 20px;

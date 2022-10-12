@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 import styles from '../styles/Home.module.scss'
+import Bloc1Hero from '../components/HomePageComponents/Bloc1Hero/Bloc1Hero';
 
 
 export default function Home(props) {
+  const homeData = props.homeData
   const dispatch = useDispatch();
   /**
    * Initializing of the page
@@ -17,16 +19,23 @@ export default function Home(props) {
   },[])
 
 
-  return (
-    <div className={styles.container}>
 
-      <p> Home page </p>
-    </div>
+  return (
+    <>
+      <Head>
+        <title>{homeData.seo.title_seo}</title>
+        <meta name="description" content={homeData.seo.meta_description_seo}/>
+      </Head>
+      <div className={styles.container}>
+        <Bloc1Hero data={homeData.bloc1}/>
+      
+      </div>
+    </>
   )
 }
 
 export async function getStaticProps() {
-  const data = await fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/homedata", {
+  const data = await fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/homepage", {
     // Adding method type
     method: "GET",
 

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./PrimaryBtn.module.scss";
+import styles from "./SecondBtn.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import Heartsvg from '../../public/heart-black.svg'
@@ -7,18 +7,18 @@ import Heartsvg from '../../public/heart-black.svg'
 const convertColorStyle = (colorText) =>{
 
     switch(colorText){
-        case 'yellow':
-            return styles.btn_yellow
-        case 'blue':
-            return styles.btn_blue
+        case 'black':
+            return styles.btn_black
+        case 'white':
+            return styles.btn_white
 
         default: 
-            return styles.btn_yellow
+            return styles.btn_black
     }
 
 }
 
-export default function PrimaryBtn({ label, link, color, onClick, noHeart, notActived, ...otherProps }) {
+export default function SecondBtn({ label, link, color, onClick, noArrow, notActived, ...otherProps }) {
   return (
     <>
   
@@ -26,14 +26,14 @@ export default function PrimaryBtn({ label, link, color, onClick, noHeart, notAc
         <Link href={link}>
           <a>
             <button
-              className={[styles.btn_container, notActived ? styles.notActived : styles.actived, color ? convertColorStyle(color) : styles.btn_yellow].join(" ")}
+                className={[styles.btn_container, notActived ? styles.notActived : styles.actived, color ? convertColorStyle(color) : styles.btn_black].join(" ")}
               {...otherProps }
             >
               
               <span dangerouslySetInnerHTML={{ __html: label }} />
-              {!noHeart && 
+              {!noArrow && 
                 <div className={styles.wrapper_svg_heart}>
-                  <img src='./heart-black.svg'  />
+                  <img src='./arrow.svg'  />
                 </div>
             }
             </button>
@@ -41,15 +41,15 @@ export default function PrimaryBtn({ label, link, color, onClick, noHeart, notAc
         </Link>
       ) : (
         <button 
-          className={[styles.btn_container, notActived ? styles.notActived : styles.actived, color ? convertColorStyle(color) : styles.btn_yellow].join(" ")} 
+          className={[styles.btn_container, notActived ? styles.notActived : styles.actived, color ? convertColorStyle(color) : styles.btn_black].join(" ")} 
           onClick={!notActived ? (e) => onClick(e) : (e) =>{ e.preventDefault();}}
           {...otherProps }
           >
       
           <span dangerouslySetInnerHTML={{ __html: label }} />
-          {!noHeart && 
+          {!noArrow && 
           <div className={styles.wrapper_svg_heart}>
-            <img src='./heart-black.svg'  />
+            <img src='./arrow.svg'  />
           </div>
         }
         </button>

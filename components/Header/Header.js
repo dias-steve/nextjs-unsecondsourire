@@ -100,7 +100,7 @@ export default function Header() {
                     alt={'logo'}
                     layout="fill"
                     className={styles.image}
-                    objectFit={'containe'}
+                    objectFit={'contain'}
                   />
             </div>
             </a>
