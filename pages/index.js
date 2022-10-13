@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from '../styles/Home.module.scss'
 import Bloc1Hero from '../components/HomePageComponents/Bloc1Hero/Bloc1Hero';
 import BlocPostList from '../components/HomePageComponents/BlocPostList/BlocPostList';
+import BlocAbout from '../components/HomePageComponents/BlocAbout/BlocAbout';
 
 
 export default function Home(props) {
@@ -21,6 +22,7 @@ export default function Home(props) {
 
 
 
+
   return (
     <>
       <Head>
@@ -29,7 +31,9 @@ export default function Home(props) {
       </Head>
       <div className={styles.container}>
         <Bloc1Hero data={homeData.bloc1}/>
-        <BlocPostList data={homeData.bloc2_list_post} title={'Nos Actualités'} link={'/'}/>
+        <BlocPostList data={homeData.bloc2_list_post} title={'Nos Actualités'} link={'/'}  labelBtn='Voir toutes nos actualités' cardColor={'dark-blue'}/>
+        <BlocAbout data= {homeData.bloc4_apropos}/>
+        <BlocPostList data={homeData.bloc2_list_post} title={'Nos Actions'} link={'/'} labelBtn='Voir toutes nos actions' cardColor={'light-blue'}/>
       </div>
     </>
   )

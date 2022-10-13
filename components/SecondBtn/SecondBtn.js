@@ -18,7 +18,7 @@ const convertColorStyle = (colorText) =>{
 
 }
 
-export default function SecondBtn({ label, link, color, onClick, noArrow, notActived, ...otherProps }) {
+export default function SecondBtn({ label, link, color, noArrow, notActived, ...otherProps }) {
   return (
     <>
   
@@ -42,7 +42,7 @@ export default function SecondBtn({ label, link, color, onClick, noArrow, notAct
       ) : (
         <button 
           className={[styles.btn_container, notActived ? styles.notActived : styles.actived, color ? convertColorStyle(color) : styles.btn_black].join(" ")} 
-          onClick={!notActived ? (e) => onClick(e) : (e) =>{ e.preventDefault();}}
+
           {...otherProps }
           >
       

@@ -4,7 +4,7 @@ import SecondBtn from '../../SecondBtn/SecondBtn';
 import styles from './BlocPostList.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function BlocPostList({data, title, link}) {
+export default function BlocPostList({data, title, link, cardColor, labelBtn}) {
     const { list_articles } = data;
     return (
         <div className={styles.global_container}>
@@ -13,7 +13,7 @@ export default function BlocPostList({data, title, link}) {
                     <h2 className={styles.title}>{title}</h2>
              
                         <SecondBtn  
-                            label={'Voir toutes nos actualités'}
+                            label={labelBtn}
                             link={link}
                             color={'black'} />
                 
@@ -23,7 +23,7 @@ export default function BlocPostList({data, title, link}) {
                         
                         {
                             list_articles.map(article => (
-                                <PostCard key= {uuidv4()} data={article} />
+                                <PostCard key= {uuidv4()} data={article} color={cardColor} />
                             ))
                         }
                        

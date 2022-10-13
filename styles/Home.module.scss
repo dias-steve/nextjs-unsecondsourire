@@ -1,7 +1,8 @@
 @import "./variable.scss";
 .container {
   padding-top: 60px;
-  height: 2000px;
+  width: 100vw;
+  overflow-x: hidden;
   background-color: $background-color-pink;
 }
 

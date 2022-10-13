@@ -7,13 +7,13 @@ import styles from './PostCard.module.scss'
 const convertColorStyle = (colorText) =>{
 
     switch(colorText){
-        case 'blue-dark':
+        case 'dark-blue':
             return styles.bg_blue_dark
         case 'light-blue':
             return styles.bg_blue_light
 
         default: 
-            return styles.btn_yellow
+            return styles.bg_blue_dark
     }
 
 }
@@ -42,7 +42,7 @@ export default function PostCard({data, color}) {
                     <div className={styles.btn_wrapper}>
                     <SecondBtn
                         label={'Voir plus'}
-                        link={link}
+            
                         color={ color =='light-blue'? 'black' :'white'}
                     />
                     </div>
