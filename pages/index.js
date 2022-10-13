@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import styles from '../styles/Home.module.scss'
 import Bloc1Hero from '../components/HomePageComponents/Bloc1Hero/Bloc1Hero';
+import BlocPostList from '../components/HomePageComponents/BlocPostList/BlocPostList';
 
 
 export default function Home(props) {
@@ -28,7 +29,7 @@ export default function Home(props) {
       </Head>
       <div className={styles.container}>
         <Bloc1Hero data={homeData.bloc1}/>
-      
+        <BlocPostList data={homeData.bloc2_list_post} title={'Nos Actualités'} link={'/'}/>
       </div>
     </>
   )

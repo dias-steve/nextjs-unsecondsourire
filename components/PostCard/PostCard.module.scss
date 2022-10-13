@@ -1,0 +1,106 @@
+@import "../../styles/variable.scss";
+
+$border-raduis-value: 100px;
+$height: 400px;
+$width: 300px;
+$height-mobile: 150px;
+$width-mobile: 310px;
+$space-mobile: 10px;
+.global_container{
+    transition: 300ms;
+    height: fit-content;
+    width:  fit-content;
+    margin: 10px 0;
+
+    @media (pointer:fine){
+
+    
+    &:hover{
+        .background_blue{
+        transform: translate(35px, -35px);
+        }
+    }
+    }
+    .background_yellow{
+        background-color: $primary-color-yellow;
+        height: $height;
+        width: $width;
+        border-radius: $border-raduis-value;
+        @media screen and (max-width: 950px){
+
+            height: $height-mobile;
+            width: $width-mobile;
+        }
+    }
+    .background_blue{
+        transition: 300ms;
+        transform: translate(20px, -20px);
+
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media screen and (max-width: 950px){
+            transform: translate(10px, -10px);
+            flex-direction: row-reverse;
+            height: $height-mobile;
+            width: $width-mobile;
+            .btn_wrapper{
+                display: none;
+            }
+        }
+
+        &.bg_blue_dark{
+            background-color: $primary-color-dark-blue;
+            color: $white;
+        }
+        &.bg_blue_light{
+            background-color: $primary-color-light-blue;
+            color: $black;
+        }
+        
+        height: $height;
+        width: $width;
+        border-radius: $border-raduis-value;
+
+        .image_wrapper{
+            position: relative !important;
+            height: 200px;
+            width: 300px;
+            overflow: hidden;
+            border-radius: 100px;
+            @media screen and (max-width: 950px){
+              
+                height: 120px;
+                width: 120px;
+                margin-right: 10px;
+      
+            }
+
+            .image{
+                height: 100%;
+                width: 100%;
+                position: absolute !important;
+            }
+ 
+        }
+
+        .title{
+            font-family: $font-family-title;
+            font-weight: 300;
+            text-align: center;
+            width: 250px;
+            font-size: 1.3rem;
+            @media screen and (max-width: 950px){
+                font-size: 1rem;
+                text-align: start;
+                width: 150px;
+          
+
+            }
+        }
+
+
+    }
+
+}

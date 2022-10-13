@@ -14,7 +14,7 @@ const GenerateImages = ({nbImage, srcImage, altImage}) => {
     for (let i = 0; i < nbImage; i++) {
         imagesList.push({src: srcImage, alt: altImage})
     }
-    console.log(imagesList);
+    
 
     return (
         <>
@@ -38,7 +38,7 @@ const GenerateImages = ({nbImage, srcImage, altImage}) => {
 }
 export default function Bloc1Hero({data}) {
     const { title, description, thumbnail} = data;
-    console.log(data)
+
   return (
     <div className={styles.global_container}>
       <div className={styles.content_wrapper}>
