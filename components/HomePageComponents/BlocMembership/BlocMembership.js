@@ -20,7 +20,7 @@ const BtnAction = ({title, description, link, heart}) => {
                     </div>
                     <div className={styles.right_container_btn}>
                         <h3 className={styles.title_btn}>{title}</h3>
-                        <p className={styles.description_btn}>{description}</p>
+                        <p className={styles.description_btn} dangerouslySetInnerHTML={{__html:description}}/>
                     </div>
                 </div>
             </a>
@@ -28,7 +28,7 @@ const BtnAction = ({title, description, link, heart}) => {
     )
 }
 export default function BlocMembership({data}) {
-    console.log(data);
+   
 
     const {donation_description, member_description, image, donation_url } = data
              //dangerouslySetInnerHTML={{__html:title}}

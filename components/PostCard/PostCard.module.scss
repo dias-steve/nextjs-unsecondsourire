@@ -15,6 +15,12 @@ $space-mobile: 10px;
         .background_blue{
         transform: translate(0px, 0px);
         }
+        .image_wrapper{
+
+            
+            transition: 300ms;
+            animation: eyesClining 5s infinite ease-in-out;
+        }
     }
     @media (pointer:fine){
 
@@ -22,7 +28,15 @@ $space-mobile: 10px;
     &:hover{
         .background_blue{
         transform: translate(35px, -35px);
+
         }
+
+    }
+    &:active{
+        .background_blue{
+            transform: translate(0px, 0px);
+        }
+
     }
     }
     .background_yellow{
@@ -66,28 +80,45 @@ $space-mobile: 10px;
         height: $height;
         width: $width;
         border-radius: $border-raduis-value;
-
-        .image_wrapper{
-            position: relative !important;
-            height: 200px;
+        .image_container{
+            height: 204px;
             width: 300px;
-            overflow: hidden;
-            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             @media screen and (max-width: 950px){
-              
+                  
                 height: 120px;
                 width: 120px;
                 margin-right: 10px;
       
             }
+            .image_wrapper{
+                position: relative ;
+                height: 200px;
+                width: 300px;
+                overflow: hidden;
+                border-radius: 100px;
 
-            .image{
-                height: 100%;
-                width: 100%;
-                position: absolute !important;
+        
+                transition: 300ms;
+                @media screen and (max-width: 950px){
+                  
+                    height: 120px;
+                    width: 120px;
+                  
+          
+                }
+    
+                .image{
+                    height: 100%;
+                    width: 100%;
+                    position: absolute !important;
+                }
+     
             }
- 
         }
+
 
         .title{
             font-family: $font-family-title;
@@ -95,10 +126,12 @@ $space-mobile: 10px;
             text-align: center;
             width: 250px;
             font-size: 1.3rem;
+            
             @media screen and (max-width: 950px){
                 font-size: 1rem;
                 text-align: start;
                 width: 150px;
+                height: auto;
           
 
             }
@@ -108,3 +141,29 @@ $space-mobile: 10px;
     }
 
 }
+@keyframes eyesClining {
+    0% { 
+      max-height: 200px 
+    }
+    17%{
+        max-height: 200px 
+    }
+    19%{
+        max-height: 0px 
+    }
+    23%{
+        max-height:  200px
+    }
+    50%{
+        max-height:  200px
+    }
+    53% { 
+        max-height:  0px
+    }
+    55% { 
+        max-height:  200px 
+    }
+
+  
+  
+  }

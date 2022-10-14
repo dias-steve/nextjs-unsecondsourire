@@ -9,10 +9,12 @@ import Bloc1Hero from '../components/HomePageComponents/Bloc1Hero/Bloc1Hero';
 import BlocPostList from '../components/HomePageComponents/BlocPostList/BlocPostList';
 import BlocAbout from '../components/HomePageComponents/BlocAbout/BlocAbout';
 import BlocMembership from '../components/HomePageComponents/BlocMembership/BlocMembership';
+import BlocSocial from '../components/HomePageComponents/BlocSocial/BlocSocial';
 
 
 export default function Home(props) {
   const homeData = props.homeData
+  const generalSettings = props.generalSettings
   const dispatch = useDispatch();
   /**
    * Initializing of the page
@@ -53,6 +55,7 @@ export default function Home(props) {
           colorPrimaryBtn={'blue'}
           />
           <BlocMembership data={homeData.bloc6_membership} />
+          <BlocSocial mediaList= {generalSettings.external_links.media_list} />
       </div>
     </>
   )

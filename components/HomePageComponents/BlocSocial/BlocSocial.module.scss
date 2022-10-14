@@ -1,0 +1,109 @@
+@import '../../../styles/variable.scss';
+.global_container_mediacard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    
+    .image_wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 90px;
+        width: 90px;
+        .bg_icon{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            animation: rotationFlower 6s infinite linear;
+            transition: 300ms;
+         
+        }
+        .icon_media{
+            height: 60%;
+            width: 60%;
+            position: relative;
+            z-index: 2;
+            opacity: 0.6;
+            transition: 300ms;
+        }
+    }
+
+    .title_id{
+        font-family: $font-family-title;
+        font-size: 0.8rem;
+        font-weight: 300;
+        text-align: center;
+    }
+    &:hover{
+        .bg_icon{
+            animation:  rotationFlowerRevers 2s infinite linear;
+        }
+
+        .icon_media{
+            opacity: 1;
+        }
+
+        .title_id{
+            text-decoration: underline;
+        }
+    }
+}
+
+.global_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 0;
+    .title{
+        font-weight: 300;
+        font-family: $font-family-title;
+        font-size: clamp(30px, 3vw, 100px);
+    }
+    .content_container{
+        max-width: 1000px;
+        width: 100%;
+        padding: 20px;
+        .list_media_wrapper_container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .list_media_wrapper{
+                max-width: 700px;
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+
+    }
+}
+@keyframes rotationFlower {
+    0% { 
+        rotate:0deg;
+    }
+    100%{
+        rotate:180deg;
+    }
+
+  
+  
+  }
+
+  @keyframes rotationFlowerRevers {
+    0% { 
+        rotate:180deg;
+    }
+    100%{
+        rotate:0deg;
+    }
+
+  
+  
+  }
+
