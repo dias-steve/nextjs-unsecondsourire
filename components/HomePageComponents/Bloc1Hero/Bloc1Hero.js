@@ -24,7 +24,7 @@ const GenerateImages = ({nbImage, srcImage, altImage}) => {
             imagesList.map(image => (
                
                 <img
-                src={image.src}
+                src={""+image.src}
                 alt={image.alt}
                 className={styles.sigle}
                 key= {uuidv4()} 
@@ -98,7 +98,7 @@ export default function Bloc1Hero({data}) {
             <div className={styles.logo_list}>
                 <GenerateImages
                 nbImage={10}
-                srcImage='/sigle.svg'
+                srcImage={"/sigle.svg"}
                 altImage='logo'
                     />
             </div>
