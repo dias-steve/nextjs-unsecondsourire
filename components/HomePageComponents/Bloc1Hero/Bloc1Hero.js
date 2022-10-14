@@ -98,7 +98,7 @@ export default function Bloc1Hero({data}) {
             <div className={styles.logo_list}>
                 <GenerateImages
                 nbImage={10}
-                srcImage='/sigle.svg'
+                srcImage='/sigle-s2.svg'
                 altImage='logo'
                     />
             </div>
