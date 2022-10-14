@@ -31,9 +31,26 @@ export default function Home(props) {
       </Head>
       <div className={styles.container}>
         <Bloc1Hero data={homeData.bloc1}/>
-        <BlocPostList data={homeData.bloc2_list_post} title={'Nos Actualités'} link={'/'}  labelBtn='Voir toutes nos actualités' cardColor={'dark-blue'}/>
+        <BlocPostList 
+          data={homeData.bloc2_list_post} 
+          title={'Nos Actualités'}
+          link={'/'}
+          labelBtn='Voir toutes nos actualités'
+          cardColor={'dark-blue'}
+
+        
+        />
         <BlocAbout data= {homeData.bloc4_apropos}/>
-        <BlocPostList data={homeData.bloc2_list_post} title={'Nos Actions'} link={'/'} labelBtn='Voir toutes nos actions' cardColor={'light-blue'}/>
+        <BlocPostList 
+          data={homeData.bloc2_list_post}
+          title={'Nos Actions'} link={'/'}
+          labelBtn='Voir toutes nos actions'
+          cardColor={'light-blue'}
+          
+          linkPrimaryBtn={'/'}
+          labelPrimaryBtn={'Soutenir nos actions'}
+          colorPrimaryBtn={'blue'}
+          />
       </div>
     </>
   )
