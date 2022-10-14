@@ -34,7 +34,7 @@ const MediaCard = ({data}) => {
 }
 
 export default function BlocSocial({mediaList}) {
-    console.log(mediaList)
+
     
   return (
     <div className={styles.global_container}>
