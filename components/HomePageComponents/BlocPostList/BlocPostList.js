@@ -11,7 +11,7 @@ export default function BlocPostList({data, title, link, cardColor, labelBtn, la
         <div className={styles.global_container}>
             <div className={styles.content_container}>
                 <div className={styles.header_bloc}>
-                    <h2 className={styles.title}>{title}</h2>
+                    <h2 className={styles.title} dangerouslySetInnerHTML={{__html:title}}/>
              
                         <SecondBtn  
                             label={labelBtn}

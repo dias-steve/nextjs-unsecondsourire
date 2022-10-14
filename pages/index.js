@@ -8,6 +8,7 @@ import styles from '../styles/Home.module.scss'
 import Bloc1Hero from '../components/HomePageComponents/Bloc1Hero/Bloc1Hero';
 import BlocPostList from '../components/HomePageComponents/BlocPostList/BlocPostList';
 import BlocAbout from '../components/HomePageComponents/BlocAbout/BlocAbout';
+import BlocMembership from '../components/HomePageComponents/BlocMembership/BlocMembership';
 
 
 export default function Home(props) {
@@ -51,6 +52,7 @@ export default function Home(props) {
           labelPrimaryBtn={'Soutenir nos actions'}
           colorPrimaryBtn={'blue'}
           />
+          <BlocMembership data={homeData.bloc6_membership} />
       </div>
     </>
   )
