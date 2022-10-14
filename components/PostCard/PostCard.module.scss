@@ -11,7 +11,11 @@ $space-mobile: 10px;
     height: fit-content;
     width:  fit-content;
     margin: 10px 0;
-
+    &:hover{
+        .background_blue{
+        transform: translate(0px, 0px);
+        }
+    }
     @media (pointer:fine){
 
     
