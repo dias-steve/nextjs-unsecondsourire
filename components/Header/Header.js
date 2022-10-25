@@ -109,18 +109,18 @@ export default function Header() {
             <div className={styles.btn_container}>             
                 <div className={[styles.wrapper_icon,styles.wrapper_heart_icon].join(" ")}>
                     <div className={styles.span_wrapper}><p>Faire un don</p></div>
-                    <img src='./heart-black.svg'  />
+                    <img src='/heart-black.svg'  />
                 </div>
                 <div className={[styles.wrapper_icon].join(" ")}>
-                    <img src='./search.svg'  />
+                    <img src='/search.svg'  />
                 </div>
                 <div className={[styles.wrapper_icon, is_show_menu ? styles.menu_cross_wrapper : styles.menu_burger_wrapper].join(" ")}
                     onClick = {(e) => {handleClickMenu(e)} }
                 >
                     {is_show_menu ?
                  
-                      <img src='./cross.svg'  />:
-                      <img src='./menu-burger.svg'  />
+                      <img src='/cross.svg'  />:
+                      <img src='/menu-burger.svg'  />
                     
                 }
                

@@ -43,7 +43,6 @@ export default function PostCard({data, color}) {
                     <div className={styles.btn_wrapper}>
                     <SecondBtn
                         label={'Voir plus'}
-            
                         color={ color =='light-blue'? 'black' :'white'}
                     />
                     </div>
