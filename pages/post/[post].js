@@ -1,13 +1,39 @@
 import React from 'react';
 import styles from './post.module.scss';
+import Image from 'next/image'
+import TokenBtnCat from '../../components/TokenBtnCatList/TokenBtnCatList';
+import TokenBtnCatList from '../../components/TokenBtnCatList/TokenBtnCatList';
+import ContentPost from '../../components/ContentPost/ContentPost';
+import SocialKeyboard from '../../components/SocialKeyboard/SocialKeyboard';
 export default function Post(props) {
 
-  const {title, content} = props.postData;
+  const {title, content,thumbnail, taxinomie, author, date } = props.postData;
   console.log(props.postData);
   return (
     <div className={styles.global_container}>
-      <h1>{title}</h1>
-      <p dangerouslySetInnerHTML={{__html: content}}/>
+
+      <SocialKeyboard />
+      <div className={styles.image_wrapper}>
+        { thumbnail?.url && 
+            <Image
+              src={thumbnail.url}
+              alt={thumbnail.alt}
+              className= {styles.image}
+              objectFit={'cover'}
+              layout="fill"
+            />
+        }
+      </div>
+      <div className={styles.content_wrapper}>
+        <div className={styles.btn_taxinomie_wrapper}>
+          <TokenBtnCatList listCat={taxinomie} />
+        </div>
+        <div className={styles.author_container}><h3 className={styles.author_text}>{author} - {date}</h3></div>
+        <h1 className={styles.post_title} dangerouslySetInnerHTML={{__html: title}}/>
+
+        <ContentPost content={content} />
+      </div>
+
     </div>
   )
 }

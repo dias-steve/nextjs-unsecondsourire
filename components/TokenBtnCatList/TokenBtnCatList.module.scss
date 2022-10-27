@@ -1,0 +1,47 @@
+@import "../../styles/variable.scss";
+.global_container{
+    .btn_list_wrapper{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+}
+.btn_global_container{
+    color: black;
+    transition: 300ms;
+    font-family: $font-family-body;
+    font-size: 0.8rem;
+    font-weight: 300;
+    width: fit-content;
+    padding: 10px  20px 7px 20px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    margin-right: 10px;
+
+    .btn_name{
+        text-align: center;
+        margin: 0;
+    
+    }
+    &:hover{
+        background-color: $primary-color-dark-blue;
+        color: $white;
+
+    }
+}
+.btn_yellow{
+    background-color: $primary-color-yellow;
+}
+.btn_blue{
+    background-color: $background-color-blue;
+}
+
+.btn_pink{
+    background-color: $primary-color-pink;
+}
+
+.btn_green{
+    background-color: $primary-color-green;
+}
