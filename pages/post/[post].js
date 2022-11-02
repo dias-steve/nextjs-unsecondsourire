@@ -1,18 +1,43 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './post.module.scss';
 import Image from 'next/image'
 import TokenBtnCat from '../../components/TokenBtnCatList/TokenBtnCatList';
 import TokenBtnCatList from '../../components/TokenBtnCatList/TokenBtnCatList';
 import ContentPost from '../../components/ContentPost/ContentPost';
 import SocialKeyboard from '../../components/SocialKeyboard/SocialKeyboard';
+import BlocPostList from '../../components/HomePageComponents/BlocPostList/BlocPostList';
+
+import { useDispatch, useSelector } from "react-redux";
+import { initializePage } from '../../utils/global.utils';
+import Head from 'next/head';
+import LastPostWidget from '../../components/LastPostWidget/LastPostWidget';
+
+
 export default function Post(props) {
 
-  const {title, content,thumbnail, taxinomie, author, date } = props.postData;
+  const {title, content,thumbnail, taxinomie, author, date, related_posts, seo, last_posts_list } = props.postData;
+  const dispatch = useDispatch();
+  const generalSettings = props.generalSettings
+
+  console.log(last_posts_list)
+/**
+ * Initializing of the page
+ */
+useEffect(() => {
+  initializePage(dispatch);
+},[])
+  
   console.log(props.postData);
   return (
+    <>
+      <Head>
+        <title>{seo.title_seo}</title>
+        <meta name="description" content={seo.meta_description_seo}/>
+      </Head>
     <div className={styles.global_container}>
 
-      <SocialKeyboard />
+      <SocialKeyboard hostURL={'https://www.unsecondsourire.fr'} />
+      <LastPostWidget lastPostsList={ last_posts_list } />
       <div className={styles.image_wrapper}>
         { thumbnail?.url && 
             <Image
@@ -32,9 +57,23 @@ export default function Post(props) {
         <h1 className={styles.post_title} dangerouslySetInnerHTML={{__html: title}}/>
 
         <ContentPost content={content} />
+
+ 
       </div>
 
+        { Array.isArray(related_posts.posts_list) && related_posts.posts_list.length > 0 &&
+              <div className={styles.post_list_wrapper}>
+                <BlocPostList data={{
+                  list_articles: related_posts.posts_list
+                  }}
+                  link = {related_posts.taxinomie.link}
+                  labelBtn = {related_posts.taxinomie.name}
+                  />
+                </div>
+        }
+
     </div>
+    </>
   )
 }
 

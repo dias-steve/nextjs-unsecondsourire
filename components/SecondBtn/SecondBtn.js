@@ -33,7 +33,7 @@ export default function SecondBtn({ label, link, color, noArrow, notActived, ...
               <span dangerouslySetInnerHTML={{ __html: label }} />
               {!noArrow && 
                 <div className={styles.wrapper_svg_heart}>
-                  <img src='./arrow.svg'  />
+                  <img src='/arrow.svg'  />
                 </div>
             }
             </button>
@@ -49,7 +49,7 @@ export default function SecondBtn({ label, link, color, noArrow, notActived, ...
           <span dangerouslySetInnerHTML={{ __html: label }} />
           {!noArrow && 
           <div className={styles.wrapper_svg_heart}>
-            <img src='./arrow.svg'  />
+            <img src='/arrow.svg'  />
           </div>
         }
         </button>

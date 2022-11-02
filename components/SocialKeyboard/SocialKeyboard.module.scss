@@ -2,17 +2,24 @@
 
 .global_content{
     position: fixed;
-    z-index: 10;
+    z-index: 3;
     background-color: $primary-color-pink;
     padding: 10px;
     border-radius: 50px;
     width: 50px;
-    left: 8vw;
+    left: 5vw;
     bottom: 10vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+    @media screen and (max-width: 960px){
+        left: 2vw;
+    }
+    @media screen and (max-width: 844px) {
+        display: none;
+    }
     
 }
 
@@ -34,6 +41,5 @@
     .img_logo{
         height: 20px;
         width: 20px;
-
     }
 }

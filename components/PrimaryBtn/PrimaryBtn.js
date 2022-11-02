@@ -33,7 +33,7 @@ export default function PrimaryBtn({ label, link, color, onClick, noHeart, notAc
               <span dangerouslySetInnerHTML={{ __html: label }} />
               {!noHeart && 
                 <div className={styles.wrapper_svg_heart}>
-                  <img src='./heart-black.svg'  />
+                  <img src='/heart-black.svg'  />
                 </div>
             }
             </button>
@@ -49,7 +49,7 @@ export default function PrimaryBtn({ label, link, color, onClick, noHeart, notAc
           <span dangerouslySetInnerHTML={{ __html: label }} />
           {!noHeart && 
           <div className={styles.wrapper_svg_heart}>
-            <img src='./heart-black.svg'  />
+            <img src='/heart-black.svg'  />
           </div>
         }
         </button>
