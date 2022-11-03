@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from './LastPostWidget.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const PostBtn = ({data}) => {
@@ -30,7 +31,7 @@ export default function LastPostWidget({lastPostsList}) {
                 counter ++
                 return (
                 
-                    <PostBtn data = {{nb: counter , data_post: post}}/>
+                    <PostBtn key={uuidv4()} data = {{nb: counter , data_post: post}}/>
                 )
         })}
         </div>
