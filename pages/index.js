@@ -37,7 +37,7 @@ export default function Home(props) {
         <BlocPostList 
           data={homeData.bloc2_list_post} 
           title={'Nos Actualités'}
-          link={'/'}
+          link={'./actualite'}
           labelBtn='Voir toutes nos actualités'
           cardColor={'dark-blue'}
 
