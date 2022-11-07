@@ -11,25 +11,27 @@ export default function BlocPostList({data, title, link, cardColor, labelBtn, la
         <div className={styles.global_container}>
             <div className={styles.content_container}>
                 <div className={styles.header_bloc}>
+
                     <h2 className={styles.title} dangerouslySetInnerHTML={{__html:title}}/>
-             
+                    { link && labelBtn &&
+                    
                         <SecondBtn  
                             label={labelBtn}
                             link={link}
                             color={'black'} />
+                    }
                 
                 </div>
                 <div className={styles.body_bloc}>
+
                     <div className={styles.list_post_container}>
-                        
-                        {
+                    { list_articles && Array.isArray(list_articles) &&
                             list_articles.map(article => (
                                 <PostCard key= {uuidv4()} data={article} color={cardColor} />
                             ))
-                        }
-                       
-                    
+                    }
                     </div>
+
                 </div>
 
                         { linkPrimaryBtn &&

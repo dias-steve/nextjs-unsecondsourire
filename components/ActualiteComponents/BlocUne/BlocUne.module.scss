@@ -4,19 +4,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+
+  
+
+
+    min-height: 700px;
+ 
 
     .global_content{
         width: 100%;
         max-width: $max-width-global-content;
         padding: $padding-global-content-desktop;
         display: flex;
+        @media screen and (max-width: 880px){
+            flex-direction:column ;
+            padding: 0;
+            .left_bloc, .right_bloc{
+                width: 100% !important;
+         
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 5%;
+            }
 
+
+            
+        }
         .right_bloc{
-            width: 30%;
+            width: 40%;
+            padding:  0 20px;
         }
         .left_bloc{
-            width: 70%;
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            padding:  0 20px;
         }
     }
 }
@@ -30,6 +54,12 @@
     max-width: 600px;
     min-width: 500px;
     
+    @media screen and (max-width: 880px) {
+        max-width: 600px;
+        min-width: unset;
+        padding: 30px;
+        border-radius: 150px;
+    }
     border-radius: 150px;
     padding: 30px;
 
@@ -71,6 +101,7 @@
 
         .title_bigarticle{
             font-family: $font-family-title;
+            font-weight: 300;
             font-size: 1.5rem;
 
         }
@@ -80,5 +111,71 @@
             font-size: 1rem;
         }
      
+    }
+}
+
+.list_article_global_container{
+    background-color: $primary-color-yellow;
+    padding: 50px;
+    border-radius: 150px;
+    min-width: 300px;
+    @media screen and (max-width: 880px){
+        margin-bottom: 20px;
+ 
+     
+    }
+    .list_article_title{
+        font-family: $font-family-title;
+        font-weight: 300;
+        font-size: 2rem;
+    }
+
+}
+.global_container_article{
+    display: flex;
+    height: 100px;
+    width: 100%;
+
+    align-items: center;
+    margin: 20px 0px;
+    transition: 300ms;
+    color: black;
+    font-weight: 300;
+  
+
+    &:hover{
+        color: $primary-color-dark-blue !important;
+  
+    }
+    .nb_top{
+        font-family: $font-family-title;
+        font-size: 2.5rem;
+        padding: 0 15px 0 0;
+        
+    }
+
+    .image_wrapper_article{
+
+        
+        background-color: black;
+        position: relative;
+        height: 100px;
+        width: 100px;
+        min-width: 100px;
+        border-radius: 100%;
+        overflow: hidden;
+        
+    }
+
+    .article_text{
+        flex: 1;
+        margin-left: 15px;
+       
+        .article_title{
+            font-family: $font-family-title;
+            font-size: 1rem;
+            font-weight: 300;
+           
+        }
     }
 }
