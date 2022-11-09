@@ -94,12 +94,18 @@
         grid-column: 1 / 2;
         grid-row: 3 / 4;
 
-        .title_bigarticle,.text_bigarticle{
+        .title_bigarticle{
             margin: 0;
             padding: 0;
+            
+        }
+
+        .text_bigarticle{
+            margin: 10px 0 0 0;
         }
 
         .title_bigarticle{
+           
             font-family: $font-family-title;
             font-weight: 300;
             font-size: 1.5rem;
