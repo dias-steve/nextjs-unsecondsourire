@@ -1,5 +1,6 @@
 import React from 'react'
 import BlocPostList from '../../HomePageComponents/BlocPostList/BlocPostList';
+import BlocCatList from '../BlocCatList/BlocCatList';
 import BlocUne from '../BlocUne/BlocUne'
 
 export default function ContentBlocManager({data}) {
@@ -14,6 +15,8 @@ export default function ContentBlocManager({data}) {
                 labelBtn ={'Tous les articles'}
             
                 />
+        case 'liste_categorie_article':
+            return <BlocCatList data={data} />
         default:
             return <div> none </div>
 
