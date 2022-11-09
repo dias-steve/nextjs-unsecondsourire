@@ -23,14 +23,19 @@ export default function BlocPostList({data, title, link, cardColor, labelBtn, la
                 
                 </div>
                 <div className={styles.body_bloc}>
-
-                    <div className={styles.list_post_container}>
-                    { list_articles && Array.isArray(list_articles) &&
+                { list_articles && Array.isArray(list_articles) &&
+                    <div className={[styles.list_post_container, list_articles.length > 3 ? styles.biglist : "" ].join(" ")}>
+                        
+                        {
                             list_articles.map(article => (
-                                <PostCard key= {uuidv4()} data={article} color={cardColor} />
+                                <div className = {styles.postcard_wrapper}  key= {uuidv4()} >
+                                    <PostCard data={article} color={cardColor} />
+                                </div>
                             ))
-                    }
+                        }
+                    
                     </div>
+                }
 
                 </div>
 
