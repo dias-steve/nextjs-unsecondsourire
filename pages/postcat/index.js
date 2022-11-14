@@ -1,11 +1,58 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import FilterListPost from '../../components/FilterListPost/FilterListPost';
 import BlocPostList from '../../components/HomePageComponents/BlocPostList/BlocPostList';
 import styles from './ProductCat.module.scss'
+import { useDispatch, useSelector } from "react-redux";
+import { initializePage } from '../../utils/global.utils';
+import { setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
+import { filterPostList } from '../../utils/postCat.utils';
+
+const mapState = (state) => ({
+  postListReducer: state.postlist
+})
 export default function PostCat(props) {
+
+  const dispatch = useDispatch();
+  const {postListReducer} = useSelector(mapState);
+  const { list_posts_result, filter, list_posts_raw} = postListReducer;
+
+
+  /** Initialization of data */
+  useEffect(() => {
+    initializePage(dispatch);
+    if (filter){
+
+    }else{
+      dispatch(
+        setListPostResult(props.postsData)
+      )
+    }
+
+    dispatch(
+      setListPostRaw(props.postsData)
+    )
+
+  
+  },[])
+
+/** Filter checking */
+
+const filters = [{
+  type: 'categories',
+  payload: [{term_id: 1 }]
+}]
+const filtredPostlist =  filterPostList( filters, list_posts_raw );
+console.log(filtredPostlist);
+//TODO: Create dynamic checkbox list
+//TODO: connect filters to checkbox 
+// TODO: connect result filters to reducers
+
+
   
   return (
     <div className={styles.global_container}>
-      <BlocPostList  data = {{list_articles: props.postsData}}/>
+      <FilterListPost />
+      <BlocPostList  data = {{list_articles:filtredPostlist }}/>
     </div>
   )
 }
