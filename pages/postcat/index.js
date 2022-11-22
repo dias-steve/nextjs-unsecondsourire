@@ -7,6 +7,7 @@ import { initializePage } from '../../utils/global.utils';
 import { setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
 import { filterPostList } from '../../utils/postCat.utils';
 
+
 const mapState = (state) => ({
   postListReducer: state.postlist
 })
@@ -16,6 +17,8 @@ export default function PostCat(props) {
   const {postListReducer} = useSelector(mapState);
   const { list_posts_result, filter, list_posts_raw} = postListReducer;
 
+
+  console.log(props.postsCatData)
 
   /** Initialization of data */
   useEffect(() => {
@@ -37,21 +40,21 @@ export default function PostCat(props) {
 
 /** Filter checking */
 
-const filters = [{
+const filters = {
+  categories: {
   type: 'categories',
-  payload: [{term_id: 1 }]
-}]
+  payload: []
+}}
 const filtredPostlist =  filterPostList( filters, list_posts_raw );
-console.log(filtredPostlist);
+
 //TODO: Create dynamic checkbox list
-//TODO: connect filters to checkbox 
-// TODO: connect result filters to reducers
+//TODO: connect filters to checkbox
+//TODO: connect result filters to reducers
 
 
-  
   return (
     <div className={styles.global_container}>
-      <FilterListPost />
+      <FilterListPost  categoriesList={props.postsCatData}/>
       <BlocPostList  data = {{list_articles:filtredPostlist }}/>
     </div>
   )
@@ -80,15 +83,27 @@ console.log(filtredPostlist);
         "Content-type": "application/json; charset=UTF-8",
       },
     });
+
+    const postsCat = await fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/postcat", {
+      // Adding method type
+      method: "GET",
   
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+  
+
     const generalSettings = await generalSettingsRaw.json();
     const postsData = await data.json();
-  
+    const postsCatData = await postsCat.json();
   
     return {
       props: {
         postsData,
         generalSettings,
+        postsCatData
       },
       revalidate: 60, // rechargement toutes les 10s
     };
