@@ -1,7 +1,7 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
 import { setListPostRaw } from './listpost.actions';
 import { handleFetchPost } from './listpost.helpers';
-import listpostTypes from './listPost.types';
+import listpostTypes from './listpost.types';
 
 export function* fetchPosts({ payload }) {
 

@@ -1,4 +1,4 @@
-import listpostTypes from "./listPost.types";
+import listpostTypes from "./listpost.types";
 
 export const INITIAL_STATE = {
     filter : null,
