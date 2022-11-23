@@ -4,52 +4,54 @@ import BlocPostList from '../../components/HomePageComponents/BlocPostList/BlocP
 import styles from './ProductCat.module.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
-import { fetchPostStart, setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
+import { fetchPostStart, setFilter, setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
 import { filterPostList } from '../../utils/postCat.utils';
+import { useRouter } from 'next/router';
 
 
 const mapState = (state) => ({
   postListReducer: state.postlist
 })
 export default function PostCat(props) {
-
+  const { query } = useRouter();
   const dispatch = useDispatch();
   const {postListReducer} = useSelector(mapState);
   const { list_posts_result, filter, list_posts_raw} = postListReducer;
-
-
- 
-
-  /** Initialization of data */
-  useEffect(() => {
-    initializePage(dispatch);
-
-
-    dispatch(
-      fetchPostStart({})
-    )
+  const {catid} = query;
 
   
+
+
+  /** Initialization of data */
+
+  useEffect(() => {
+    initializePage(dispatch);
   },[])
+
+  useEffect(() => {
+    dispatch(
+      setFilter({cat:[catid]})
+    )
+  },[catid])
+
+  useEffect(() => {
+    dispatch(
+      fetchPostStart({filter})
+    )
+  },[filter])
 
 /** Filter checking */
 
-const filters = {
-  categories: {
-  type: 'categories',
-  payload: []
-}}
-const filtredPostlist =  filterPostList( filters, list_posts_raw );
-
 //TODO: Create dynamic checkbox list
-//TODO: connect filters to checkbox
-//TODO: connect result filters to reducers
+
 
 
   return (
     <div className={styles.global_container}>
+      
+      <h1>{query.catname}- {query.catid}</h1>
       <FilterListPost  categoriesList={props.postsCatData}/>
-      <BlocPostList  data = {{list_articles:filtredPostlist }}/>
+      <BlocPostList  data = {{list_articles:list_posts_raw.list_post }}/>
     </div>
   )
 }

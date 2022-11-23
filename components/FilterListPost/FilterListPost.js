@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './FilterListPost.module.scss'
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from "react-redux";
+import { setFilter } from '../../redux/ListPost/listpost.actions';
+import { useEffect, useState } from 'react';
 
 
 const mapState = (state) => ({
@@ -9,7 +11,19 @@ const mapState = (state) => ({
   })
 
 export const Checkbox = ({label, isChecked, value, checkHandler}) => {
-    
+    const {filter} = useSelector(mapState);
+    const [isCheckedValue, setIsCheckedValue] = useState(false)
+
+    const isCheckedCat = (value) => {
+        console.log('value'+value);
+      console.log(filter.cat.includes("2"));
+        return filter.cat.includes(""+value);
+
+    }
+    useEffect( () => {
+       setIsCheckedValue( )
+    }, [filter])
+
     return <div className={styles.global_container}>
           <input
 
@@ -17,13 +31,15 @@ export const Checkbox = ({label, isChecked, value, checkHandler}) => {
 
         id="checkbox"
 
-        checked={isChecked}
+        checked={isCheckedCat(value)}
 
         onChange={checkHandler}
 
+        value = {value}
+
       />
 
-      <label htmlFor="checkbox">{label} - id {value.term_id}</label>
+      <label htmlFor="checkbox">{label} - id {value}</label>
 
       <p>The checkbox is {isChecked ? "checked" : "unchecked"}</p>
     </div>
@@ -40,56 +56,44 @@ export default function FilterListPost({categoriesList}) {
     
     const dispatch = useDispatch();
     const {filter} = useSelector(mapState);
+    const {cat} = filter;
+    
+    const addCategoryOnFilter = (id) => {
+        let newCat
+        if(!cat.includes(id)){
+            newCat = [...cat, id];
+            dispatch( 
+                setFilter({...filter, cat: newCat})
+            )
+        }
+    }
+
+    const removeCategoryOnFilter = (id) => {
+        let newCat = cat;
+        newCat = cat.filter( function (item) {return item !== id});
+        dispatch( 
+            setFilter({...filter, cat: newCat})
+        )
+    }
+
+    
+    
     
 
-    const isChecked = (value) => {
-        if(filter.categories){
-            for(let i=0; i < filter.categories.length; i++){
-                if (value.term_id === filter.categories[i].term_id ){
-                    return true;
-                }
-            }
-        }else{
-            return false
+
+
+ 
+
+    const handleCheck = (value) => {
+       
+     
+        if(cat.includes(value)){
+            console.log('remove:'+ value)
+            removeCategoryOnFilter(value)
+       }else{
+            console.log('add'+value)
+            addCategoryOnFilter(value)
         }
-   
-    }
-
-    const getIndexCategory = (value) => {
-        if(filter.categories){
-            for(let i=0; i < filter.categories.length; i++){
-                if (value.term_id === filter.categories[i].term_id ){
-                    return i;
-                }
-            }
-        }else{
-            return false
-        }
-    }
-
-    const removeCategoryElement = (value) => {
-        const index = getIndexCategory(value);
-        let newFilterCategory = null;
-        if(index){
-            newFilterCategory = filter.categories.splice(index,index)
-        }
-
-        return newFilterCategory;
-    }
-
-    const addCategory = ( category ) => {
-        //TODO: ADD category on category check
-        let filtersCategories = filter.categories.payload
-        let newFilterCategories = filter.categories.payload
-        if(filter.categories){
-            newFilterCategories = filtersCategories.push(category);
-        }else{
-            
-        }
-    }
-
-    const handleCheck = (category) => {
-        //TODO: adding category
 
     }
     console.log(filter)
@@ -103,9 +107,9 @@ export default function FilterListPost({categoriesList}) {
                             <Checkbox
                                 key={uuidv4()}
                                 label = {category.name}
-                                value = {category}
-                                checkHandler = {() => {}}
-                                isChecked={true}
+                                value = {category.term_id}
+                                checkHandler = {(e) => { handleCheck(e.target.value)}}
+                                
                              />
                             ))
                     }

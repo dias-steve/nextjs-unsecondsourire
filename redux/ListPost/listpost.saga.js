@@ -6,6 +6,7 @@ import listpostTypes from './listpost.types';
 export function* fetchPosts({ payload }) {
 
     try{
+        console.log(payload)
         //on va chercher la liste des produits de notre boutique avec notre function helper 
         const posts = yield handleFetchPost({...payload});
 
