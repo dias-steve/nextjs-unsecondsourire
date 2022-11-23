@@ -30,8 +30,6 @@ export default function PostCat(props) {
     initializePage(dispatch);
   },[])
 
-
-
   useEffect(() => {
     dispatch(
       setFilter({cat:[catid]})
@@ -55,7 +53,6 @@ export default function PostCat(props) {
       setCurrentPage(1)
     )
   },[filter])
-
 
 /** Filter checking */
 

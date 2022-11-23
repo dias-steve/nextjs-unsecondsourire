@@ -46,9 +46,9 @@ export default function Pagination() {
 
     return (
         <div className={styles.global_container}>
-            {
+            { page_nb_max > 1 &&
                 pagination.map((page)=> (
-                    <BtnPagination value={page.pagenb} label= {page.pagenb}/>
+                    <BtnPagination key= {uuidv4()}value={page.pagenb} label= {page.pagenb}/>
                 ))
             }
         </div>
