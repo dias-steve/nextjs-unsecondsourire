@@ -1,4 +1,4 @@
-import listpostTypes from "./ListPost.types";
+import listpostTypes from "./listPost.types";
 
 export const setFilter = (filterList) => ({
     type: listpostTypes.SET_FILTER,
