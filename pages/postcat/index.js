@@ -4,19 +4,21 @@ import BlocPostList from '../../components/HomePageComponents/BlocPostList/BlocP
 import styles from './ProductCat.module.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
-import { fetchPostStart, setFilter, setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
+import { fetchPostStart, setCurrentPage, setFilter, setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
 import { filterPostList } from '../../utils/postCat.utils';
 import { useRouter } from 'next/router';
+import Pagination from '../../components/Pagination/Pagination';
 
 
 const mapState = (state) => ({
-  postListReducer: state.postlist
+  postListReducer: state.postlist,
+  
 })
 export default function PostCat(props) {
   const { query } = useRouter();
   const dispatch = useDispatch();
   const {postListReducer} = useSelector(mapState);
-  const { list_posts_result, filter, list_posts_raw} = postListReducer;
+  const { list_posts_result, filter, list_posts_raw, current_page} = postListReducer;
   const {catid} = query;
 
   
@@ -28,6 +30,8 @@ export default function PostCat(props) {
     initializePage(dispatch);
   },[])
 
+
+
   useEffect(() => {
     dispatch(
       setFilter({cat:[catid]})
@@ -36,9 +40,22 @@ export default function PostCat(props) {
 
   useEffect(() => {
     dispatch(
-      fetchPostStart({filter})
+      fetchPostStart({filter,current_page})
+    )
+  },[current_page])
+
+  useEffect(() => {
+    dispatch(
+      fetchPostStart({filter,current_page: 1})
     )
   },[filter])
+
+  useEffect(() => {
+    dispatch(
+      setCurrentPage(1)
+    )
+  },[filter])
+
 
 /** Filter checking */
 
@@ -51,7 +68,8 @@ export default function PostCat(props) {
       
       <h1>{query.catname}- {query.catid}</h1>
       <FilterListPost  categoriesList={props.postsCatData}/>
-      <BlocPostList  data = {{list_articles:list_posts_raw.list_post }}/>
+      <BlocPostList  data = {{list_articles:list_posts_raw }}/>
+      <Pagination />
     </div>
   )
 }

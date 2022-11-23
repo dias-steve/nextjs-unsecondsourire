@@ -15,16 +15,13 @@ export const Checkbox = ({label, isChecked, value, checkHandler}) => {
     const [isCheckedValue, setIsCheckedValue] = useState(false)
 
     const isCheckedCat = (value) => {
-        console.log('value'+value);
-      console.log(filter.cat.includes("2"));
+
         return filter.cat.includes(""+value);
 
     }
-    useEffect( () => {
-       setIsCheckedValue( )
-    }, [filter])
 
-    return <div className={styles.global_container}>
+
+    return <div className={styles.checkbox_global_container}>
           <input
 
         type="checkbox"
@@ -88,15 +85,15 @@ export default function FilterListPost({categoriesList}) {
        
      
         if(cat.includes(value)){
-            console.log('remove:'+ value)
+           
             removeCategoryOnFilter(value)
        }else{
-            console.log('add'+value)
+    
             addCategoryOnFilter(value)
         }
 
     }
-    console.log(filter)
+
     return (
         <div className={styles.global_container}>
             <h2 className={styles.title}>Catégorie</h2>

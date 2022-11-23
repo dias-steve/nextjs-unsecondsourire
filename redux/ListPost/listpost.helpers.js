@@ -1,7 +1,7 @@
 export const handleFetchPost = async (payload) => {
 
     const bodyToSend= {
-        page: "1",  
+        page: payload.current_page ? payload.current_page : 1,  
         categoriesfilter:payload.filter.cat
     }
 
