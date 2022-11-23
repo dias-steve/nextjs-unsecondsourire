@@ -18,7 +18,7 @@ export default function PostCat(props) {
   const { query } = useRouter();
   const dispatch = useDispatch();
   const {postListReducer} = useSelector(mapState);
-  const { list_posts_result, filter, list_posts_raw, current_page} = postListReducer;
+  const { list_posts_result, filter, list_posts_raw, current_page, is_loading} = postListReducer;
   const {catid} = query;
 
   
@@ -65,8 +65,12 @@ export default function PostCat(props) {
       
       <h1>{query.catname}- {query.catid}</h1>
       <FilterListPost  categoriesList={props.postsCatData}/>
+      {is_loading ? <p> Loading...</p> : 
+      <>
       <BlocPostList  data = {{list_articles:list_posts_raw }}/>
       <Pagination />
+      </>
+  }
     </div>
   )
 }
