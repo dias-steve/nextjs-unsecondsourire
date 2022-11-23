@@ -4,7 +4,7 @@ import BlocPostList from '../../components/HomePageComponents/BlocPostList/BlocP
 import styles from './ProductCat.module.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
-import { setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
+import { fetchPostStart, setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
 import { filterPostList } from '../../utils/postCat.utils';
 
 
@@ -18,21 +18,15 @@ export default function PostCat(props) {
   const { list_posts_result, filter, list_posts_raw} = postListReducer;
 
 
-  console.log(props.postsCatData)
+ 
 
   /** Initialization of data */
   useEffect(() => {
     initializePage(dispatch);
-    if (filter){
 
-    }else{
-      dispatch(
-        setListPostResult(props.postsData)
-      )
-    }
 
     dispatch(
-      setListPostRaw(props.postsData)
+      fetchPostStart({})
     )
 
   

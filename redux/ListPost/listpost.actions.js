@@ -14,3 +14,8 @@ export const setListPostResult = (list) => ({
     type: listpostTypes.SET_LIST_POSTS_RESULT,
     payload: list
 })
+
+export const fetchPostStart = (filter) => ({
+    type: listpostTypes.FETCH_POSTS_START,
+    payload: filter
+});
