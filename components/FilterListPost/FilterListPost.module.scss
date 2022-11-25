@@ -1,0 +1,78 @@
+@import "../../styles/variable.scss";
+.checkbox_global_container{
+
+    margin: 10px 0px 20px 0px;
+    input {
+        display: none;
+    }
+    .checkbox_label{
+   
+        padding: 10px 15px 8px 15px;
+        border-radius: 100px;
+        transition: 300ms;
+        font-size: 0.8rem;
+      
+        &:hover{
+            background-color: $background-color-pink;
+            color: $black;
+        }
+
+        &.is_not_checked{
+            background-color: $primary-color-light-blue;
+            color: $black;
+        }
+        &.is_checked{
+            background-color: $primary-color-dark-blue;
+            color: white;
+        }
+    }
+}
+
+.global_container{
+
+    .btn_section_filter{
+        margin: 0px;
+        padding: 0px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        .icon{
+          
+           width: 10px;
+           margin: 5px 0px 0px 10px;
+           transition: 400ms;
+
+           &.down{
+            rotate: 180deg;
+           }
+
+           &.up{
+            rotate: 0deg;
+           }
+          
+        }
+        .title{
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+            font-family: $font-family-title;
+            font-weight: 300;
+        }
+    }
+
+    .list_container{
+        
+        margin: 10px;
+        overflow-y: hidden;
+    
+
+        transition: 400ms;
+        &.open_window{
+            max-height: 1000px;
+        }
+
+        &.closed_window{
+            max-height: 0;
+        }
+    }
+}

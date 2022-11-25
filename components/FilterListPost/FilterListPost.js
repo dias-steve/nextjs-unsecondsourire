@@ -19,16 +19,15 @@ export const Checkbox = ({label, isChecked, value, checkHandler}) => {
         return filter.cat.includes(""+value);
 
     }
-
-
+    const check = isCheckedCat(value)
     return <div className={styles.checkbox_global_container}>
-          <input
+        <input
 
         type="checkbox"
 
-        id="checkbox"
+        id={"checkbox"+value}
 
-        checked={isCheckedCat(value)}
+        checked={check}
 
         onChange={checkHandler}
 
@@ -36,9 +35,9 @@ export const Checkbox = ({label, isChecked, value, checkHandler}) => {
 
       />
 
-      <label htmlFor="checkbox">{label} - id {value}</label>
+      <label htmlFor={"checkbox"+value} className={[ styles.checkbox_label, check ? styles.is_checked : styles.is_not_checked].join(" ")}>{label}</label>
+     
 
-      <p>The checkbox is {isChecked ? "checked" : "unchecked"}</p>
     </div>
 }
 
@@ -54,7 +53,7 @@ export default function FilterListPost({categoriesList}) {
     const dispatch = useDispatch();
     const {filter} = useSelector(mapState);
     const {cat} = filter;
-    
+    const [isOpen, setIsOpen] = useState(false);
     const addCategoryOnFilter = (id) => {
         let newCat
         if(!cat.includes(id)){
@@ -72,15 +71,6 @@ export default function FilterListPost({categoriesList}) {
             setFilter({...filter, cat: newCat})
         )
     }
-
-    
-    
-    
-
-
-
- 
-
     const handleCheck = (value) => {
        
      
@@ -94,11 +84,18 @@ export default function FilterListPost({categoriesList}) {
 
     }
 
+    const handleClickOpen = () => {
+        setIsOpen(!isOpen)
+    }
+
     return (
         <div className={styles.global_container}>
-            <h2 className={styles.title}>Catégorie</h2>
+            <div className={styles.btn_section_filter} onClick= {() => handleClickOpen()}>
+                <h2 className={styles.title}>Catégorie</h2><img className={[styles.icon, isOpen? styles.down : styles.up].join(" ")} src={'/chevron-down.svg'}/>
+                
+            </div>
             { categoriesList && Array.isArray(categoriesList) &&
-                <div className={styles.list_container}>
+                <div className={[styles.list_container, isOpen? styles.open_window : styles.closed_window].join(" ")}>
                     {
                         categoriesList.map(category => (
                             <Checkbox

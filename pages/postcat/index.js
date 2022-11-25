@@ -63,7 +63,7 @@ export default function PostCat(props) {
   return (
     <div className={styles.global_container}>
       
-      <h1>{query.catname}- {query.catid}</h1>
+   
       <FilterListPost  categoriesList={props.postsCatData}/>
       {is_loading ? <p> Loading...</p> : 
       <>
