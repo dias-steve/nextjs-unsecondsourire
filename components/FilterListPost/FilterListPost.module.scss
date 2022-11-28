@@ -30,12 +30,24 @@
 
 .global_container{
 
+    background-color: rgba(36, 69, 116, 0.153);
+    border-radius: 20px;
+    padding: 5px 15px 0 15px;
+
+    transition: 300ms;
+    &:hover{
+        background-color: rgba(36, 69, 116, 0.292);
+    }
+
+    
+
     .btn_section_filter{
         margin: 0px;
         padding: 0px;
         cursor: pointer;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         .icon{
           
            width: 10px;

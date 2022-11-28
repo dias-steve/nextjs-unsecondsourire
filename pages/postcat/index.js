@@ -8,6 +8,7 @@ import { fetchPostStart, setCurrentPage, setFilter, setListPostRaw, setListPostR
 import { filterPostList } from '../../utils/postCat.utils';
 import { useRouter } from 'next/router';
 import Pagination from '../../components/Pagination/Pagination';
+import Spinner from '../../components/Spin/spinner';
 
 
 const mapState = (state) => ({
@@ -63,14 +64,25 @@ export default function PostCat(props) {
   return (
     <div className={styles.global_container}>
       
-   
-      <FilterListPost  categoriesList={props.postsCatData}/>
-      {is_loading ? <p> Loading...</p> : 
-      <>
-      <BlocPostList  data = {{list_articles:list_posts_raw }}/>
-      <Pagination />
-      </>
-  }
+      <div className={styles.global_content}>
+
+        
+        <div className={styles.filter_container}>
+          <h1 className={styles.title_filter}> Filtre </h1>
+          <FilterListPost  categoriesList={props.postsCatData}/>
+        </div>
+        <div className={styles.list_result}>
+          {is_loading ? <Spinner /> : 
+          <>
+          <BlocPostList  data = {{list_articles:list_posts_raw }}/>
+          <div className={styles.pagination_container}>
+          <Pagination />
+          </div>
+          </>
+          }
+        </div>
+      </div>
+
     </div>
   )
 }

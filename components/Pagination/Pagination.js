@@ -23,6 +23,8 @@ export const BtnPagination = ({value, label}) => {
 
 
     }
+
+
     return (
         <span
             onClick = {handleClick}
@@ -32,7 +34,20 @@ export const BtnPagination = ({value, label}) => {
 }
 export default function Pagination() {
     const {current_page, page_nb_max, filter} = useSelector(mapState);
-    
+    const dispatch = useDispatch();
+    const handleNext = () => {
+        const nextPageValue = current_page + 1 > page_nb_max ? page_nb_max : current_page + 1;
+        dispatch(
+            setCurrentPage(nextPageValue)
+        )
+    }
+
+    const handlePrevious = () => {
+        const previousPageValue = current_page - 1 < 1?  1 : current_page - 1;
+        dispatch(
+            setCurrentPage(previousPageValue)
+        )
+    }
  
 
     const createListPagination = () => {
@@ -46,10 +61,16 @@ export default function Pagination() {
 
     return (
         <div className={styles.global_container}>
+            { current_page != 1 &&
+                <div className={[styles.btn_pagination_label, styles.btn_next].join(" ")} onClick={() => handlePrevious()}><img className={[styles.icon, styles.previous].join(" ")} src={'/chevron-down.svg'}/><span>Précédent</span></div>
+            }
             { page_nb_max > 1 &&
                 pagination.map((page)=> (
                     <BtnPagination key= {uuidv4()}value={page.pagenb} label= {page.pagenb}/>
                 ))
+            }
+            { current_page != page_nb_max &&
+                <div className={[styles.btn_pagination_label, styles.btn_next].join(" ")} onClick={() => handleNext()}><span>Suivant</span><img className={[styles.icon, styles.next].join(" ")} src={'/chevron-down.svg'}/></div>
             }
         </div>
     )

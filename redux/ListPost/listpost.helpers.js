@@ -1,11 +1,12 @@
 export const handleFetchPost = async (payload) => {
-
+    
     const bodyToSend= {
         page: payload.current_page ? payload.current_page : 1,  
-        categoriesfilter:payload.filter.cat
+        categoriesfilter:payload?.filter?.cat ? payload.filter.cat : []
     }
 
-    
+    console.log("payload");
+    console.log(bodyToSend);
 
     return new Promise((resolve, reject) =>{
 

@@ -65,7 +65,7 @@ export default function FilterListPost({categoriesList}) {
     }
 
     const removeCategoryOnFilter = (id) => {
-        let newCat = cat;
+        let newCat = [...cat];
         newCat = cat.filter( function (item) {return item !== id});
         dispatch( 
             setFilter({...filter, cat: newCat})
@@ -107,6 +107,7 @@ export default function FilterListPost({categoriesList}) {
                              />
                             ))
                     }
+                    
                 </div>
 
             }
