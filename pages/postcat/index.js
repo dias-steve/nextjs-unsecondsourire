@@ -62,9 +62,9 @@ export default function PostCat(props) {
 
 
   return (
-    <div className={styles.global_container}>
+    <div className={[styles.global_container].join(" ")}>
       
-      <div className={styles.global_content}>
+      <div className={[styles.global_content].join(" ")}>
 
         
         <div className={styles.filter_container}>
@@ -72,12 +72,12 @@ export default function PostCat(props) {
           <FilterListPost  categoriesList={props.postsCatData}/>
         </div>
         <div className={styles.list_result}>
-          {is_loading ? <Spinner /> : 
+          {is_loading ?<div className={styles.spinner_wrapper}> <Spinner />  </div>: 
           <>
-          <BlocPostList  data = {{list_articles:list_posts_raw }}/>
-          <div className={styles.pagination_container}>
-          <Pagination />
-          </div>
+            <BlocPostList  data = {{list_articles:list_posts_raw }}/>
+            <div className={styles.pagination_container}>
+              <Pagination />
+            </div>
           </>
           }
         </div>

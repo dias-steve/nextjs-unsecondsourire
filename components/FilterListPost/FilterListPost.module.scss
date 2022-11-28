@@ -33,8 +33,9 @@
     background-color: rgba(36, 69, 116, 0.153);
     border-radius: 20px;
     padding: 5px 15px 0 15px;
-
+    width: 100%;
     transition: 300ms;
+
     &:hover{
         background-color: rgba(36, 69, 116, 0.292);
     }
@@ -84,7 +85,7 @@
         }
 
         &.closed_window{
-            max-height: 0;
+            max-height: 0px;
         }
     }
 }

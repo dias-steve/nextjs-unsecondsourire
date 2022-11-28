@@ -10,6 +10,7 @@ export default function BlocPostList({data, title, link, cardColor, labelBtn, la
     return (
         <div className={styles.global_container}>
             <div className={styles.content_container}>
+            { link && labelBtn &&
                 <div className={styles.header_bloc}>
 
                     <h2 className={styles.title} dangerouslySetInnerHTML={{__html:title}}/>
@@ -22,8 +23,9 @@ export default function BlocPostList({data, title, link, cardColor, labelBtn, la
                     }
                 
                 </div>
+            }
                 <div className={styles.body_bloc}>
-                { list_articles && Array.isArray(list_articles) &&
+                { list_articles && Array.isArray(list_articles) && list_articles.length > 0 ?
                     <div className={[styles.list_post_container, list_articles.length > 3 ? styles.biglist : "" ].join(" ")}>
                         
                         {
@@ -34,7 +36,8 @@ export default function BlocPostList({data, title, link, cardColor, labelBtn, la
                             ))
                         }
                     
-                    </div>
+                    </div>:
+                    <div className={styles.msg_empthy_list}><span>Aucun résultat</span></div>
                 }
 
                 </div>

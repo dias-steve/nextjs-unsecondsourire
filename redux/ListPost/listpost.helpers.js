@@ -1,8 +1,24 @@
 export const handleFetchPost = async (payload) => {
     
-    const bodyToSend= {
+    let bodyToSend= {
         page: payload.current_page ? payload.current_page : 1,  
         categoriesfilter:payload?.filter?.cat ? payload.filter.cat : []
+    }
+    if(
+      payload === null ||
+      payload === undefined ||
+      payload.filter === undefined ||
+      payload.filter === null ||
+      payload.filter.cat === undefined ||
+      payload.filter.cat === null ||
+      payload.filter.cat.length === undefined ||
+      payload.filter.cat.length === undefined <= 0
+      
+    ){
+      bodyToSend = {
+        page: payload.current_page ? payload.current_page : 1 
+      
+      }
     }
 
     console.log("payload");
