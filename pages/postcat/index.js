@@ -8,7 +8,7 @@ import { fetchPostStart, setCurrentPage, setFilter, setListPostRaw, setListPostR
 import { filterPostList } from '../../utils/postCat.utils';
 import { useRouter } from 'next/router';
 import Pagination from '../../components/Pagination/Pagination';
-import Spinner from '../../components/Spin/spinner';
+import Spinner from '../../components/Spin/Spinner';
 
 
 const mapState = (state) => ({
