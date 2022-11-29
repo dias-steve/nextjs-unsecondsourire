@@ -66,7 +66,11 @@ export default function PostCat(props) {
       
       <div className={[styles.global_content].join(" ")}>
 
-        
+    
+      <h1 className={styles.title}>Articles</h1>
+ 
+
+      <div className={[styles.content_wrapper].join(" ")}>
         <div className={styles.filter_container}>
           <h1 className={styles.title_filter}> Filtre </h1>
           <FilterListPost  categoriesList={props.postsCatData}/>
@@ -81,6 +85,7 @@ export default function PostCat(props) {
           </>
           }
         </div>
+      </div>
       </div>
 
     </div>
