@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
 import Head from 'next/head';
 import LastPostWidget from '../../components/LastPostWidget/LastPostWidget';
+import ActionForm from '../../components/ActionForm/ActionForm';
 
 
 export default function Actions(props) {
@@ -30,6 +31,7 @@ useEffect(() => {
   console.log(props.postData);
   return (
     <>
+      <ActionForm />
       <Head>
         <title>{seo.title_seo}</title>
         <meta name="description" content={seo.meta_description_seo}/>
@@ -37,7 +39,7 @@ useEffect(() => {
     <div className={styles.global_container}>
 
       <SocialKeyboard hostURL={'https://www.unsecondsourire.fr'} />
-      <LastPostWidget lastPostsList={ last_posts_list } />
+    
       <div className={styles.image_wrapper}>
         { thumbnail?.url && 
             <Image

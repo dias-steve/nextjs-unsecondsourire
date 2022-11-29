@@ -35,6 +35,20 @@ $font-weight-text-input: 200;
         }
         
     }
+
+    &.whiteStyle{
+        input, textarea{
+            color: $primary-color !important;
+            border-color:transparent;
+            background-color: rgba(255, 255, 255, 0.361) !important;
+            caret-color: $primary-color;
+        }
+        .label{
+            color: $primary-color-darker-focus !important;
+            
+        }
+        
+    }
     textarea{
         resize: none;
     }
