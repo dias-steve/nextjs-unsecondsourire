@@ -29,7 +29,7 @@ export default function ActionForm() {
         <>
          <MobileDock/>
         <div className={[styles.global_container, windowIsopen ? styles.isUp : styles.isDown ].join(" ")}>
-            <h2 className={styles.title}>Passez à l'action</h2>
+            <h2 className={styles.title}>Passez à l&apos;action</h2>
             <div className={styles.form_wrapper}>
           
                 <MemberForm />
