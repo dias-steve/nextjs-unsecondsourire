@@ -34,3 +34,8 @@ export const setCurrentPage = (page) => ({
     type: listpostTypes.SET_CURRENT_PAGE,
     payload: page
 })
+
+export const setNbPostsFound = (nb) =>({
+    type: listpostTypes.SET_NB_POSTS_FOUND,
+    payload: nb
+})

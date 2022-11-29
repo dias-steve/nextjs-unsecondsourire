@@ -19,7 +19,7 @@ export default function PostCat(props) {
   const { query } = useRouter();
   const dispatch = useDispatch();
   const {postListReducer} = useSelector(mapState);
-  const { list_posts_result, filter, list_posts_raw, current_page, is_loading} = postListReducer;
+  const { list_posts_result, filter, list_posts_raw, current_page, is_loading, nb_posts_found} = postListReducer;
   const {catid} = query;
 
   
@@ -78,6 +78,7 @@ export default function PostCat(props) {
         <div className={styles.list_result}>
           {is_loading ?<div className={styles.spinner_wrapper}> <Spinner />  </div>: 
           <>
+            <span className={styles.result_nb}>{nb_posts_found} article{nb_posts_found>1 && 's'} trouvé{nb_posts_found>1 && 's'}</span>
             <BlocPostList  data = {{list_articles:list_posts_raw }}/>
             <div className={styles.pagination_container}>
               <Pagination />

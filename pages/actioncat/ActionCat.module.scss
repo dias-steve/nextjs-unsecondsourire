@@ -77,6 +77,12 @@
      
             align-items: center;
             flex-direction: column;
+
+            .result_nb{
+                font-size: 0.8rem;
+                opacity: 0.8;
+                text-align: center;
+            }
             .spinner_wrapper{
                 height: 100%;
                 width: 100%;

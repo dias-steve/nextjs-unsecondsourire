@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import FilterListPost from '../../components/FilterListPost/FilterListPost';
 import BlocPostList from '../../components/HomePageComponents/BlocPostList/BlocPostList';
-import styles from './ProductCat.module.scss'
+import styles from './ActionCat.module.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
 import { fetchPostStart, setCurrentPage, setFilter, setListPostRaw, setListPostResult } from '../../redux/ListPost/listpost.actions';
@@ -19,7 +19,7 @@ export default function ActionCat(props) {
   const { query } = useRouter();
   const dispatch = useDispatch();
   const {postListReducer} = useSelector(mapState);
-  const { list_posts_result, filter, list_posts_raw, current_page, is_loading} = postListReducer;
+  const { list_posts_result, filter, list_posts_raw, current_page, is_loading,nb_posts_found } = postListReducer;
   const {catid} = query;
 
   
@@ -39,13 +39,13 @@ export default function ActionCat(props) {
 
   useEffect(() => {
     dispatch(
-      fetchPostStart({filter,current_page})
+      fetchPostStart({filter,current_page, type: "action"})
     )
   },[current_page])
 
   useEffect(() => {
     dispatch(
-      fetchPostStart({filter,current_page: 1})
+      fetchPostStart({filter,current_page: 1, type: "action"})
     )
   },[filter])
 
@@ -67,9 +67,9 @@ export default function ActionCat(props) {
       <div className={[styles.global_content].join(" ")}>
 
     
-      <h1 className={styles.title}>Articles</h1>
- 
+      <h1 className={styles.title}>Actions</h1>
 
+     
       <div className={[styles.content_wrapper].join(" ")}>
         <div className={styles.filter_container}>
           <h1 className={styles.title_filter}> Filtre </h1>
@@ -78,7 +78,11 @@ export default function ActionCat(props) {
         <div className={styles.list_result}>
           {is_loading ?<div className={styles.spinner_wrapper}> <Spinner />  </div>: 
           <>
-            <BlocPostList  data = {{list_articles:list_posts_raw }}/>
+            <span className={styles.result_nb}>{nb_posts_found} action{nb_posts_found>1 && 's'} trouvée{nb_posts_found>1 && 's'}</span>
+            <BlocPostList  
+              data = {{list_articles:list_posts_raw }}
+              cardColor={'light-blue'}
+              />
             <div className={styles.pagination_container}>
               <Pagination />
             </div>
@@ -116,7 +120,7 @@ export default function ActionCat(props) {
       },
     });
 
-    const postsCat = await fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/postcat", {
+    const postsCat = await fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/actioncats", {
       // Adding method type
       method: "GET",
   

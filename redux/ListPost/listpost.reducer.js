@@ -7,7 +7,8 @@ export const INITIAL_STATE = {
     is_loading: false,
 
     current_page: 1,
-    page_nb_max: 1
+    page_nb_max: 1,
+    nb_posts_found:1
 
 
 }
@@ -49,6 +50,12 @@ const listpostReducer = (state=INITIAL_STATE, action) => {
             return{
                 ...state,
                 current_page: action.payload
+
+            }
+        case listpostTypes.SET_NB_POSTS_FOUND:
+            return {
+                ...state,
+                nb_posts_found: action.payload
 
             }
         default:

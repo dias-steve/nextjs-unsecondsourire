@@ -21,10 +21,28 @@ export const handleFetchPost = async (payload) => {
       }
     }
 
-    console.log("payload");
-    console.log(bodyToSend);
+    if (payload.type && payload.type === 'action'){
+      return new Promise((resolve, reject) =>{
 
-    return new Promise((resolve, reject) =>{
+        fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/actions", {
+            // Adding method type
+            method: "POST",
+        
+            // Adding headers to the request
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+
+            body: JSON.stringify(bodyToSend)
+            //TODO ADD Body
+          })
+          .then(response => response.json())
+          .then(response => resolve(response))
+          .catch(err => reject(err))
+        }
+    )
+    }else{
+      return new Promise((resolve, reject) =>{
 
         fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/posts", {
             // Adding method type
@@ -43,4 +61,8 @@ export const handleFetchPost = async (payload) => {
           .catch(err => reject(err))
         }
     )
+    }
+
+
+
 }

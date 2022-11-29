@@ -7,6 +7,7 @@ const listpostTypes = {
     SET_PAGE: 'SET_PAGE',
     SET_CURRENT_PAGE: 'SET_CURRENT_PAGE',
     SET_PAGE_NB_MAX: 'SET_PAGE_NB_MAX',
+    SET_NB_POSTS_FOUND: 'SET_NB_POSTS_FOUND',
 }
 
 export default listpostTypes
