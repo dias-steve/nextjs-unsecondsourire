@@ -74,13 +74,11 @@ export default function FilterListPost({categoriesList}) {
     const handleCheck = (value) => {
        
      
-        if(cat.includes(value)){
-           
-            removeCategoryOnFilter(value)
-       }else{
-    
-            addCategoryOnFilter(value)
-        }
+    if(cat.includes(value)){
+        removeCategoryOnFilter(value)
+    }else{
+        addCategoryOnFilter(value)
+    }
 
     }
 
@@ -91,8 +89,8 @@ export default function FilterListPost({categoriesList}) {
     return (
         <div className={styles.global_container}>
             <div className={styles.btn_section_filter} onClick= {() => handleClickOpen()}>
-                <h2 className={styles.title}>Catégorie</h2><img className={[styles.icon, isOpen? styles.down : styles.up].join(" ")} src={'/chevron-down.svg'}/>
-                
+                <h2 className={styles.title}>Catégorie</h2>
+                <img className={[styles.icon, isOpen? styles.down : styles.up].join(" ")} src={'/chevron-down.svg'}/>
             </div>
             { categoriesList && Array.isArray(categoriesList) &&
                 <div className={[styles.list_container, isOpen? styles.open_window : styles.closed_window].join(" ")}>
@@ -103,11 +101,9 @@ export default function FilterListPost({categoriesList}) {
                                 label = {category.name}
                                 value = {category.term_id}
                                 checkHandler = {(e) => { handleCheck(e.target.value)}}
-                                
                              />
                             ))
                     }
-                    
                 </div>
 
             }

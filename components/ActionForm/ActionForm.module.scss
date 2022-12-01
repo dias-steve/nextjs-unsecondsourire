@@ -2,35 +2,31 @@
 
 .dock_global_container{
     position: fixed;
-    bottom: 0;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: $primary-color-light-blue;
-    padding: 30px 30px;
 
-    border-radius: 70px 70px 0 0;
-    max-width: 300px;
-    width: 80vw;
-    display: flex;
     justify-content: center;
-    .btn_wrapper{
-        
-    }
+    z-index: 5;
 
-    @media screen and (max-width:380px){
-        width: 95vw;
-    }
+    transition: 700ms;
+
 
     @media screen and (min-width:1192px){
       
         display: none;
     }
-
+ 
     &.isUp{
-        
+        transform: translate(-50%, 0%);
+        opacity: 1;
+   
+  
     }
 
     &.isDown{
+        transform: translate(-50%, 200%);
+        opacity: 0;
  
     }
 
@@ -47,15 +43,62 @@
     top: 30%;
     border-radius: 120px 0 0 120px;
 
-    padding: 50px;
+    padding: 20px 50px;
     transition: 300ms;
+    .wrapper_content{
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        transition: 300ms;
+    }
+
+    @media screen and (min-width:1192px){
+        padding: 50px;
+
+    }
+    @media screen and (max-width:1192px){
+        padding: 20px 50px;
+        top:unset;
+        bottom: 0;
+    }
+
+    .icon{
+        padding: 10px;
+        margin-bottom: 5px;
+
+        border-radius: 100px;
+
+        transition: 300ms;
+        width: 40px;
+
+        @media screen and (min-width:1192px){
+            display: none;
+        }
+
+        &:hover{
+            background-color: $background-color-blue;
+        }
+        
+    }
     @media screen and (max-width:1192px){
     &.isUp{
-        transform: translateX(0%, 0%);
+        transform: translate(-50%, 20%);
+        .wrapper_content{
+            opacity: 1;
+            transition: 400ms;
+        }
+
+        transition: 400ms;
     }
 
     &.isDown{
-        transform: translate(-50%,100%);
+        transform: translate(-50%,85%);
+        .wrapper_content{
+            opacity: 0;
+            transition: 300ms;
+        }
+        transition: 700ms;
     }
     }
     @media screen and (max-width:1192px){

@@ -5,16 +5,16 @@ import styles from './ActionForm.module.scss';
 
 export default function ActionForm() {
     const [windowIsopen, setWindowIsOpen] = useState(false);
-
+    const handleClick = () => {
+        setWindowIsOpen(!windowIsopen);
+    }
     const MobileDock = ({}) => {
-        const handleClick = () => {
-            setWindowIsOpen(true);
-        }
+
         return (
-            <div className={styles.dock_global_container}>
+            <div className={[styles.dock_global_container, windowIsopen ? styles.isDown : styles.isUp].join(" ")}>
                 <div className={[styles.btn_wrapper].join(" ")}>
                     <PrimaryBtn
-                    label={'Passer à laction'}
+                    label={'Passer à l&apos;action'}
                     onClick={(e) => {
                         e.preventDefault();
                         handleClick();
@@ -27,16 +27,27 @@ export default function ActionForm() {
     }
     return (
         <>
+        <div> 
          <MobileDock/>
         <div className={[styles.global_container, windowIsopen ? styles.isUp : styles.isDown ].join(" ")}>
+        <div className={styles.wrapper_content}>
+        <img className={[styles.icon].join(" ")}
+            src={'/chevron-down.svg'}
+            onClick={(e) => {
+                e.preventDefault();
+                handleClick();
+            }}
+            />
             <h2 className={styles.title}>Passez à l&apos;action</h2>
             <div className={styles.form_wrapper}>
           
-                <MemberForm />
+            <MemberForm />
             
                
                
             </div>
+        </div>
+        </div>
         </div>
         </>
     );
