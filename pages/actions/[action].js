@@ -16,7 +16,7 @@ import ActionForm from '../../components/ActionForm/ActionForm';
 
 export default function Actions(props) {
 
-  const {title, content,thumbnail, taxinomie, author, date, related_posts, seo, last_posts_list } = props.postData;
+  const {title, content,thumbnail, taxinomie, author, date, related_posts, seo, last_posts_list, id } = props.postData;
   const dispatch = useDispatch();
   const generalSettings = props.generalSettings
 
@@ -31,7 +31,7 @@ useEffect(() => {
   console.log(props.postData);
   return (
     <>
-      <ActionForm />
+      <ActionForm action= {'[Action id:'+id+' title:'+title+']'}/>
       <Head>
         <title>{seo.title_seo}</title>
         <meta name="description" content={seo.meta_description_seo}/>

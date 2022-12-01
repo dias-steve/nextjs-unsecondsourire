@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { formatContactMessage } from "../../utils/contactMessage.utils";
 import InputText from "../FormCompoments/InputText/InputText";
 import PrimaryBtn from "../PrimaryBtn/PrimaryBtn";
 import styles from './MemberForm.module.scss'
 
-export default function MemberForm() {
+export default function MemberForm({action}) {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setlastName] = useState("");
@@ -11,14 +12,31 @@ export default function MemberForm() {
     const [messageError, setMessageError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-   
+    const publiKey = process.env.NEXT_PUBLIC_KEY_CONTACT_MESSAGE;
 
     const  handleClick = () => {
+        sendMessage();
         console.log("send");
     }
 
     const desc = "Rejoinez nous pour défendre le droit de manifester"
 
+    const sendMessage = () => {
+      const messageFormatted =  formatContactMessage('[Demande Inscription Action: '+action+']', email, firstName,  lastName)
+      fetch("/api/contactmessage", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          publickey: publiKey,
+          message: messageFormatted ,
+        })
+      })
+        .then(() => console.log('envoyé'))
+        .catch((err)=> console.log(err))
+    }
   return (
     <div className={styles.global_container} >
     

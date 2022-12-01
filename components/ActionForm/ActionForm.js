@@ -3,7 +3,7 @@ import MemberForm from '../MemberForm/MemberForm';
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import styles from './ActionForm.module.scss';
 
-export default function ActionForm() {
+export default function ActionForm({action}) {
     const [windowIsopen, setWindowIsOpen] = useState(false);
     const handleClick = () => {
         setWindowIsOpen(!windowIsopen);
@@ -41,7 +41,7 @@ export default function ActionForm() {
             <h2 className={styles.title}>Passez à l&apos;action</h2>
             <div className={styles.form_wrapper}>
           
-            <MemberForm />
+            <MemberForm action={action}/>
             
                
                
