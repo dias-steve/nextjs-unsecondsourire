@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import styles from './InputText.module.scss';
 
-export default function InputText( {onChange, value, name, textarea, blackStyle,whiteStyle, ...otherProps}) {
+export default function InputText( {onChange, value, name, textarea, blackStyle,whiteStyle, error , ...otherProps}) {
 
 const [onFocus, setOnFocus] = useState(false);
 const upName = onFocus || value != "" ? true : false;
 
   return (
 
-    
-    <div className={[styles.inputGroup, textarea ? styles.textarea: styles.notTextarea, blackStyle ? styles.blackStyle : styles.notBlackStyle, whiteStyle ? styles.whiteStyle : " "].join(" ")}>
+    <div className={styles.globalContainer}>
+    <div className={[styles.inputGroup, textarea ? styles.textarea: styles.notTextarea, blackStyle ? styles.blackStyle : styles.notBlackStyle, whiteStyle ? styles.whiteStyle : " ", error?.isError ? styles.errorStyle : " "].join(" ")}>
         <label className={[styles.label, upName ? styles.upLabel : styles.notUpLabel, onFocus ? styles.onFocus : styles.NotFocus].join(" ")}>{name}</label>
           
           {textarea ?
@@ -34,7 +34,16 @@ const upName = onFocus || value != "" ? true : false;
             value={value}
             onChange={(event) => onChange(event.target.value)}
           />
+
+      
         }
+ 
     </div>
+    { error?.isError &&error?.message !== " "&& error?.message !== null &&
+      <div className={styles.messageErrorWrapper}><img className={styles.icon} src='/error-red-icon.svg'/> <span className={styles.messageError} dangerouslySetInnerHTML={{__html: error.message}}/></div>
+    }
+
+    </div>
+
   )
 }

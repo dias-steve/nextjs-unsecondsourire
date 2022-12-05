@@ -20,7 +20,8 @@
     "redux-saga": "^1.2.1",
     "redux-thunk": "^2.4.1",
     "sass": "^1.55.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "eslint": "8.12.0",

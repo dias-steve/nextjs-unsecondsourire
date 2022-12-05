@@ -8,6 +8,8 @@ export default function ActionForm({action}) {
     const handleClick = () => {
         setWindowIsOpen(!windowIsopen);
     }
+
+    const desc = "Rejoinez nous pour défendre le droit de manifester"
     const MobileDock = ({}) => {
 
         return (
@@ -39,6 +41,9 @@ export default function ActionForm({action}) {
             }}
             />
             <h2 className={styles.title}>Passez à l&apos;action</h2>
+            <div className={styles.description_wrapper}>
+            <p className={styles.description} dangerouslySetInnerHTML={{__html: desc}}/>
+            </div>
             <div className={styles.form_wrapper}>
           
             <MemberForm action={action}/>

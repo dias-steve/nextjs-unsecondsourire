@@ -10,8 +10,35 @@ $font-text: $font-family-title;
 $font-weight-label-input: 200;
 $font-weight-text-input: 200;
 
+$color-label-error: rgb(189, 18, 18);
+$color-border-error: rgba(189, 18, 18, 0.593);
 
 
+.globalContainer{
+    margin: 5px;
+    padding: 0;
+
+    .messageErrorWrapper{
+        margin-left: 10px;
+        margin-top: 3px;
+        display: flex;
+        align-items: center;
+        .messageError{
+            margin: 2px 0 0 10px;
+            padding: 0;
+            color: $color-label-error;
+            font-size: 0.8rem;
+            line-height: 0.8rem;
+
+            height: fit-content;
+        }
+        .icon{
+            width: 15px;
+
+        }
+
+    }
+}
 .inputGroup{
     display: flex;
     flex-direction: column;
@@ -19,7 +46,9 @@ $font-weight-text-input: 200;
     height: 60px;
     justify-content: flex-start;
     width: 100%;
-    margin: 10px 0px;
+    margin: 0;
+
+
 
     
     &.blackStyle{
@@ -48,6 +77,18 @@ $font-weight-text-input: 200;
             
         }
         
+    }
+
+    &.errorStyle{
+        .label{
+            color: $color-label-error !important;
+        }
+
+        input, textarea{
+      
+            border-color:$color-border-error !important;
+   
+        }
     }
     textarea{
         resize: none;

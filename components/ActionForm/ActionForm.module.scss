@@ -83,7 +83,7 @@
     }
     @media screen and (max-width:1192px){
     &.isUp{
-        transform: translate(-50%, 20%);
+        transform: translate(-50%, 15%);
         .wrapper_content{
             opacity: 1;
             transition: 400ms;
@@ -132,10 +132,11 @@
 
     .description_wrapper{
         .description{
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-family: $font-family-body;
             @media screen and (max-width:1192px){
-                font-size: 0.6rem;
+                font-size: 0.9rem;
+                text-align: center;
             }
         }
 
