@@ -45,16 +45,25 @@
 
     padding: 20px 50px;
     transition: 300ms;
+
     .wrapper_content{
         display: flex;
         flex-direction: column;
 
         align-items: center;
+        @media screen and (min-width:1192px){
+            justify-content: center;
+            margin-top: -10px;
+
+        }
         transition: 300ms;
+        height: 100%;
+
     }
 
     @media screen and (min-width:1192px){
         padding: 50px;
+      
 
     }
     @media screen and (max-width:1192px){
