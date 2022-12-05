@@ -34,6 +34,11 @@ export default function MemberForm({action}) {
      
      
     }
+    const resetAllFields = () => {
+      setEmail("");
+      setlastName("");
+      setFirstName("");
+    }
 
     const showMessageSending = (isSuccess, message) => {
       setMessageSending({isSuccess, message})
@@ -111,7 +116,8 @@ export default function MemberForm({action}) {
       })
         .then(() =>{ 
           setIsLoading(false);
-          showMessageSending(true, null) 
+          resetAllFields();
+          showMessageSending(true, null);
           })
         .catch((err)=> {console.log(err);
           showMessageSending("false", "oops une erreur, veuillez réessayer") 
