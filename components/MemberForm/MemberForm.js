@@ -6,6 +6,8 @@ import Spinner from "../Spin/Spinner";
 import validator from "validator";
 import styles from './MemberForm.module.scss'
 
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+
 
 export default function MemberForm({action}) {
 
@@ -23,17 +25,56 @@ export default function MemberForm({action}) {
 
     const publiKey = process.env.NEXT_PUBLIC_KEY_CONTACT_MESSAGE;
 
+
+const { executeRecaptcha } = useGoogleReCaptcha();
+
     const  handleClick = () => {
       setIsLoading(true)
       if(inputsAreValid()){
-        sendMessage();
-        console.log("send");
+        executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
+          console.log(gReCaptchaToken, "response Google reCaptcha server");
+          submitEnquiryForm(gReCaptchaToken);
+        });
+       
       }else{
         setIsLoading(false)
       }
      
      
     }
+
+
+    const submitEnquiryForm = (gReCaptchaToken) => {
+      fetch("/api/enquiry", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          email: email,
+          gRecaptchaToken: gReCaptchaToken,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res, "response from backend");
+          if (res?.status === "success") {
+            console.log("Captchga good");
+            sendMessage();
+            console.log("send");
+      
+          } else {
+           
+            showMessageSending("false", "oops vous semblez être un robot, veuillez réessayer") 
+            setIsLoading(false)
+           
+          }
+        });
+    
+    };
     const resetAllFields = () => {
       setEmail("");
       setlastName("");
