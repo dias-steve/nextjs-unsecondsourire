@@ -17,11 +17,11 @@ export default function SubMenu() {
         <div className={styles.global_content_wrapper}>
         <div className={styles.btn_list_wrapper}>
             <Btn label ='Accueil' link='/'/>
-            <Btn label ='Nos Actions' link='/'/>
-            <Btn label ='Nos Actualités' link='/'/>
-            <Btn label ='Devenir Membre' link='/'/>
+            <Btn label ='Nos Actions' link='/actioncat'/>
+            <Btn label ='Nos Actualités' link='/actualite'/>
+            <Btn label ='Devenir Membre' link='/member'/>
             <Btn label ='Faire un don' link='/'/>
-            <Btn label ='Nous contacter' link='/'/>
+            <Btn label ='Nous contacter' link='/contact'/>
         </div>
         </div>
     </div>

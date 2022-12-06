@@ -12,12 +12,13 @@ export const handleFetchPost = async (payload) => {
       payload.filter.cat === undefined ||
       payload.filter.cat === null ||
       payload.filter.cat.length === undefined ||
-      payload.filter.cat.length === undefined <= 0
+      payload.filter.cat.length === undefined <= 0 ||
+      payload.filter?.getall === true
       
     ){
       bodyToSend = {
-        page: payload.current_page ? payload.current_page : 1 
-      
+        page: payload.current_page ? payload.current_page : 1, 
+        getall: true
       }
     }
 

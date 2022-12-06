@@ -20,7 +20,9 @@ export default function ActionCat(props) {
   const dispatch = useDispatch();
   const {postListReducer} = useSelector(mapState);
   const { list_posts_result, filter, list_posts_raw, current_page, is_loading,nb_posts_found } = postListReducer;
-  const {catid} = query;
+  const {catid, getall} = query;
+
+
 
   
 
@@ -32,9 +34,28 @@ export default function ActionCat(props) {
   },[])
 
   useEffect(() => {
-    dispatch(
-      setFilter({cat:[catid]})
-    )
+    if(getall && getall === true){
+      dispatch(
+        setFilter({getall:true})
+      )
+    }else{
+      dispatch(
+        setFilter({cat:[catid], getall: false})
+      )
+    }
+  }, [])
+  useEffect(() => {
+
+    if(getall && getall === true){
+      dispatch(
+        setFilter({getall:true})
+      )
+    }else{
+      dispatch(
+        setFilter({cat:[catid], getall: false})
+      )
+    }
+
   },[catid])
 
   useEffect(() => {
@@ -67,7 +88,7 @@ export default function ActionCat(props) {
       <div className={[styles.global_content].join(" ")}>
 
     
-      <h1 className={styles.title}>Actions</h1>
+      <h1 className={styles.title}>Actions {getall}</h1>
 
      
       <div className={[styles.content_wrapper].join(" ")}>
