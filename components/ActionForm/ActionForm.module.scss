@@ -1,5 +1,6 @@
 @import "../../styles/variable.scss";
 
+$breakpoint: 1300px;
 .dock_global_container{
     position: fixed;
     bottom: 20px;
@@ -12,7 +13,7 @@
     transition: 700ms;
 
 
-    @media screen and (min-width:1192px){
+    @media screen and (min-width:$breakpoint){
       
         display: none;
     }
@@ -29,6 +30,7 @@
         opacity: 0;
  
     }
+   
 
 }
 .global_container{
@@ -45,29 +47,35 @@
 
     padding: 20px 50px;
     transition: 300ms;
+    @media screen and (max-width:$breakpoint){
+       padding: 20px 0 0 0;
+       width: 100%;
+    }
 
     .wrapper_content{
         display: flex;
         flex-direction: column;
 
         align-items: center;
-        @media screen and (min-width:1192px){
+        @media screen and (min-width:$breakpoint){
             justify-content: center;
             margin-top: -10px;
 
         }
         transition: 300ms;
         height: 100%;
-
-    }
-
-    @media screen and (min-width:1192px){
-        padding: 50px;
+        width: 100%;
+     
+        padding: 0;
+        margin: 0;
       
+        
 
     }
-    @media screen and (max-width:1192px){
-        padding: 20px 50px;
+
+
+    @media screen and (max-width:$breakpoint){
+      
         top:unset;
         bottom: 0;
     }
@@ -81,7 +89,7 @@
         transition: 300ms;
         width: 40px;
 
-        @media screen and (min-width:1192px){
+        @media screen and (min-width:$breakpoint){
             display: none;
         }
 
@@ -90,7 +98,7 @@
         }
         
     }
-    @media screen and (max-width:1192px){
+    @media screen and (max-width:$breakpoint){
     &.isUp{
         transform: translate(-50%, 15%);
         .wrapper_content{
@@ -107,25 +115,23 @@
             opacity: 0;
             transition: 300ms;
         }
-        transition: 700ms;
+        transition: 400ms;
     }
     }
-    @media screen and (max-width:1192px){
+    @media screen and (max-width:$breakpoint){
       
         border-radius: 70px 70px 0 0;
 
         left: 50%;
         transform: translateX(-50%);
         max-width: 400px;
-        width: 80vw;
+        width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    @media screen and (max-width:380px){
-        width: 95vw;
-    }
+
 
     .title{
         font-family: $font-family-title;
@@ -133,7 +139,7 @@
         font-weight: 300;
         margin: 0;
         padding: 0;
-        @media screen and (max-width:1192px){
+        @media screen and (max-width:$breakpoint){
             text-align: center;
             font-size: clamp(25px, 1.2vw, 50px);
         }
@@ -143,7 +149,7 @@
         .description{
             font-size: 0.9rem;
             font-family: $font-family-body;
-            @media screen and (max-width:1192px){
+            @media screen and (max-width:$breakpoint){
                 font-size: 0.9rem;
                 text-align: center;
             }
