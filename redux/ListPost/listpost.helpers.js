@@ -4,23 +4,7 @@ export const handleFetchPost = async (payload) => {
         page: payload.current_page ? payload.current_page : 1,  
         categoriesfilter:payload?.filter?.cat ? payload.filter.cat : []
     }
-    if(
-      payload === null ||
-      payload === undefined ||
-      payload.filter === undefined ||
-      payload.filter === null ||
-      payload.filter.cat === undefined ||
-      payload.filter.cat === null ||
-      payload.filter.cat.length === undefined ||
-      payload.filter.cat.length === undefined <= 0 ||
-      payload.filter?.getall === true
-      
-    ){
-      bodyToSend = {
-        page: payload.current_page ? payload.current_page : 1, 
-        getall: true
-      }
-    }
+  
 
     if (payload.type && payload.type === 'action'){
       return new Promise((resolve, reject) =>{

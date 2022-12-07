@@ -32,9 +32,18 @@ export default function PostCat(props) {
   },[])
 
   useEffect(() => {
-    dispatch(
-      setFilter({cat:[catid]})
-    )
+
+
+      if(!catid){
+       dispatch(
+         setFilter({cat:[]})
+       )
+      }else{
+       dispatch(
+         setFilter({cat:[catid]})
+       )
+      }
+    
   },[catid])
 
   useEffect(() => {

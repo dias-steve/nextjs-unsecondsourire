@@ -33,28 +33,20 @@ export default function ActionCat(props) {
     initializePage(dispatch);
   },[])
 
-  useEffect(() => {
-    if(getall && getall === true){
-      dispatch(
-        setFilter({getall:true})
-      )
-    }else{
-      dispatch(
-        setFilter({cat:[catid], getall: false})
-      )
-    }
-  }, [])
+
   useEffect(() => {
 
-    if(getall && getall === true){
-      dispatch(
-        setFilter({getall:true})
-      )
-    }else{
-      dispatch(
-        setFilter({cat:[catid], getall: false})
-      )
-    }
+   if(!catid){
+    dispatch(
+      setFilter({cat:[]})
+    )
+   }else{
+    dispatch(
+      setFilter({cat:[catid]})
+    )
+   }
+
+    
 
   },[catid])
 
