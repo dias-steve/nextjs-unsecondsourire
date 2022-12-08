@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./post.module.scss";
 import Image from "next/image";
+import Head from "next/head";
 
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
@@ -12,7 +13,7 @@ import BlocPostList from "../../components/HomePageComponents/BlocPostList/BlocP
 
 import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from "../../utils/global.utils";
-import Head from "next/head";
+
 import LastPostWidget from "../../components/LastPostWidget/LastPostWidget";
 import ActionForm from "../../components/ActionForm/ActionForm";
 
