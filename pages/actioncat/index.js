@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
+import Head from 'next/head';
 import FilterListPost from '../../components/FilterListPost/FilterListPost';
 import BlocPostList from '../../components/HomePageComponents/BlocPostList/BlocPostList';
+
+
 import styles from './ActionCat.module.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
@@ -21,6 +24,7 @@ export default function ActionCat(props) {
   const {postListReducer} = useSelector(mapState);
   const { list_posts_result, filter, list_posts_raw, current_page, is_loading,nb_posts_found } = postListReducer;
   const {catid, getall} = query;
+  const {seo, title} = props;
 
 
 
@@ -75,12 +79,17 @@ export default function ActionCat(props) {
 
 
   return (
+    <>
+    <Head>
+      <title>{seo.title_seo}</title>
+      <meta name="description" content={seo.meta_description_seo}/>
+    </Head>
     <div className={[styles.global_container].join(" ")}>
       
       <div className={[styles.global_content].join(" ")}>
 
     
-      <h1 className={styles.title}>Actions {getall}</h1>
+      <h1 className={styles.title}  dangerouslySetInnerHTML={{__html: title}}/>
 
      
       <div className={[styles.content_wrapper].join(" ")}>
@@ -106,20 +115,29 @@ export default function ActionCat(props) {
       </div>
 
     </div>
+    </>
   )
 }
 
 
   export async function getStaticProps() {
-    const data = await fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/posts", {
+ 
+    const bodyToSend= {
+      page:  1,  
+      categoriesfilter: []
+  }
+    const data = await fetch(process.env.NEXT_PUBLIC_REACT_APP_API_REST_DATA + "/actions", {
       // Adding method type
-      method: "GET",
+      method: "POST",
   
       // Adding headers to the request
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    });
+
+      body: JSON.stringify(bodyToSend)
+      //TODO ADD Body
+    })
   
   
   
@@ -145,14 +163,17 @@ export default function ActionCat(props) {
   
 
     const generalSettings = await generalSettingsRaw.json();
-    const postsData = await data.json();
-    const postsCatData = await postsCat.json();
+
+    const seo = await data.json();
+
+    const listactionCatData = await postsCat.json();
   
     return {
       props: {
-        postsData,
+        postsCatData: listactionCatData,
         generalSettings,
-        postsCatData
+        seo: seo.seo,
+        title: seo.title
       },
       revalidate: 60, // rechargement toutes les 10s
     };
