@@ -1,4 +1,4 @@
-import { formatDate } from "../../utils/datetranslater.utils"
+import { formatDate } from "../../utils/datetranslater.utils.js"
 
 export const orderbydata = {
   coming_actions: {meta_key: "_event_date", order:"ASC"},
