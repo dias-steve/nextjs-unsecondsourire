@@ -1,8 +1,32 @@
+import { formatDate } from "../../utils/datetranslater.utils"
+
+export const orderbydata = {
+  coming_actions: {meta_key: "_event_date", order:"ASC"},
+  past_actions:{meta_key: "_event_date", order:"DESC"}
+}
+
+export const otherfilterdata = {
+  coming_actions:[{
+    key: "_event_date",
+    value: formatDate(new Date()),
+    compare:">="
+  }],
+
+  past_actions:[{
+    key: "_event_date",
+    value: formatDate(new Date()),
+    compare:"<"
+  }]
+}
+
 export const handleFetchPost = async (payload) => {
+    
     
     let bodyToSend= {
         page: payload.current_page ? payload.current_page : 1,  
-        categoriesfilter:payload?.filter?.cat ? payload.filter.cat : []
+        categoriesfilter:payload?.filter?.cat ? payload.filter.cat : [],
+        otherfilter: payload?.filter?.coming_actions ? otherfilterdata.coming_actions : otherfilterdata.past_actions  ,
+        orderby: payload?.filter?.coming_actions ?  orderbydata.coming_actions :  orderbydata.past_actions  ,
     }
   
 

@@ -6,6 +6,28 @@ $width: 300px;
 $height-mobile: 150px;
 $width-mobile: 310px;
 $space-mobile: 10px;
+
+.date_global_container{
+    background-color: $primary-color-green;
+    padding: 10px 10px 6px 10px;
+    border-radius: 100px;
+    position: absolute;
+    margin-top: -15px;
+
+    &.passed_date{
+        background-color: rgb(210, 155, 155)
+    }
+    .date{
+        font-size: 0.9rem;
+        font-weight: 300;
+    }
+
+    @media screen and (max-width: 950px){
+        margin-top: -40%;
+        margin-right: 40%;
+
+    }
+}
 .global_container{
     transition: 300ms;
     height: fit-content;

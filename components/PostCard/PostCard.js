@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { convertEnglishToFrenchDay, formatDate } from '../../utils/datetranslater.utils'
 import SecondBtn from '../SecondBtn/SecondBtn'
+
 import styles from './PostCard.module.scss'
 
 const convertColorStyle = (colorText) =>{
@@ -17,8 +19,21 @@ const convertColorStyle = (colorText) =>{
     }
 
 }
+
+const DateDisplayer = ({rawDate}) =>{
+   const newDate = new Date(rawDate).toDateString()
+  
+    const passed = parseInt(formatDate(new Date()).replaceAll("-", ""), 10) > parseInt(rawDate.replaceAll("-", ""), 10)
+
+  
+    return (
+        <div className={[styles.date_global_container, passed ? styles.passed_date : " " ].join(" ")}>
+         <span className={styles.date} dangerouslySetInnerHTML={{__html:convertEnglishToFrenchDay(newDate)}}/>
+        </div>
+    )
+} 
 export default function PostCard({data, color}) {
-    const {title, thumbnail, link} = data;
+    const {title, thumbnail, link, date} = data;
   return (
     <div className={styles.global_container}>
         <Link href={link}>
@@ -40,6 +55,9 @@ export default function PostCard({data, color}) {
                     </div>
                     
                     <h3 className={styles.title} dangerouslySetInnerHTML={{__html:title}}/> 
+                    { date && date.event_date &&
+                        <DateDisplayer rawDate={date.event_date}/>
+                    }
                     <div className={styles.btn_wrapper}>
                     <SecondBtn
                         label={'Voir plus'}

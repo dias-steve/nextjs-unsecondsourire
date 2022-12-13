@@ -12,6 +12,7 @@ import { filterPostList } from '../../utils/postCat.utils';
 import { useRouter } from 'next/router';
 import Pagination from '../../components/Pagination/Pagination';
 import Spinner from '../../components/Spin/Spinner';
+import FilterActionDate from '../../components/FilterActionDate/FilterActionDate';
 
 
 const mapState = (state) => ({
@@ -42,11 +43,11 @@ export default function ActionCat(props) {
 
    if(!catid){
     dispatch(
-      setFilter({cat:[]})
+      setFilter({...filter,cat:[]})
     )
    }else{
     dispatch(
-      setFilter({cat:[catid]})
+      setFilter({...filter,cat:[catid]})
     )
    }
 
@@ -96,6 +97,7 @@ export default function ActionCat(props) {
         <div className={styles.filter_container}>
           <h1 className={styles.title_filter}> Filtre </h1>
           <FilterListPost  categoriesList={props.postsCatData}/>
+          <FilterActionDate />
         </div>
         <div className={styles.list_result}>
           {is_loading ?<div className={styles.spinner_wrapper}> <Spinner />  </div>: 
