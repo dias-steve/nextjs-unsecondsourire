@@ -44,11 +44,11 @@ export default function Home(props) {
         <BlocAbout data= {homeData.bloc4_apropos}/>
         <BlocPostList 
           data={homeData.bloc5_list_action}
-          title={'Nos Actions'} link={'/actioncat?catid='+homeData.bloc5_list_action.term.term_id}
-          labelBtn='Voir toutes nos actions'
+          title={'Nos Actions'} 
+         
           cardColor={'light-blue'}
-          linkPrimaryBtn={'/'}
-          labelPrimaryBtn={'Soutenir nos actions'}
+          linkPrimaryBtn={'/actioncat'}
+          labelPrimaryBtn={'Voir toutes nos actions'}
           colorPrimaryBtn={'blue'}
           />
           <BlocMembership data={homeData.bloc6_membership} />
