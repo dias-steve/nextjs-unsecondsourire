@@ -1,0 +1,108 @@
+@import "../../../styles/variable.scss";
+
+$mobile-width: 600px;
+$max-destop-width:600px;
+.global_container{
+    display: flex;
+    justify-content: center;
+}
+.global_content{
+    max-width: 1300px;
+    @media  screen and (min-width: $mobile-width) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .right_container{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        @media  screen and (min-width: $mobile-width) {
+
+        }
+        .flower_svg{
+            height: 10vw;
+            width: 10vw;
+            max-height: 200px;
+            max-width: 200px;
+            position: absolute;
+  
+            z-index: 3;
+            //filter: $filter-color-light-blue;
+            animation: rotationFlower 6s infinite linear;
+            @media screen and (max-width: $mobile-width){
+                height: 20vw;
+                width: 20vw;
+        
+            }
+            @media  screen and (min-width: $mobile-width) {
+                margin-left: 10%;
+                margin-top: 20%;
+            }
+        }
+        .image_wrapper{
+            position: relative !important;
+            z-index: 2;
+            height: 50vw;
+            width: 50vw;
+            max-height: $max-destop-width;
+            max-width: $max-destop-width;
+            overflow: hidden;
+            border-radius: 100%;
+            @media  screen and (min-width: $mobile-width) {
+                margin-top: 20%;
+            }
+   
+            @media screen and (max-width: $mobile-width){
+                width: 90vw;
+                height: 90vw;
+                margin-left: 0%;
+           
+            }
+
+        
+
+        .image{
+            height: 100%;
+            width: 100%;
+            position: absolute !important;
+        }
+
+
+    }
+    }
+
+    .lef_container{
+        padding: 20px;
+        .title, .description{
+            margin: 0;
+            padding: 0;
+        }
+        .title{
+            font-family: $font-family-title;
+            font-weight: 300;
+            font-size: clamp(30px, 15vw, 100px);
+            @media  screen and (min-width: $mobile-width) {
+                font-size: clamp(30px, 10vw, 100px);
+            }
+        }
+
+        .description{
+            font-size: 1rem;
+            line-height: 1.8rem;
+            max-width: 500px;
+
+        }
+    }
+}
+
+@keyframes rotationFlower {
+    0% { 
+        rotate:0deg;
+    }
+    100%{
+        rotate:180deg;
+    }
+
+  
+  
+  }

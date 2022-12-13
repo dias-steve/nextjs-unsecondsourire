@@ -1,0 +1,11 @@
+@import '../../styles/variable.scss';
+.global_container{
+
+    background-color: $background-color-pink;
+    width: 100vw;
+    min-height: 600px;
+    padding-top: 60px;
+    .global_content{
+
+    }
+}

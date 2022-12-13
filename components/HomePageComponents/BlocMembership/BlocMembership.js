@@ -55,7 +55,7 @@ export default function BlocMembership({data}) {
                         <BtnAction 
                             title = "Devenir membre"
                             description = {donation_description}
-                            link={'/'}
+                            link={'/member'}
                         />
                     }
 

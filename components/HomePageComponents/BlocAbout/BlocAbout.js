@@ -85,6 +85,7 @@ export default function BlocAbout({data}) {
                 <h2 className={styles.title_slogan} dangerouslySetInnerHTML={{__html:slogan}}/>
                 <PrimaryBtn
                     label={"Decouvrir notre association"}
+                    link={'/about'}
                 />
             </div>
             <div className={styles.image_down_container}>

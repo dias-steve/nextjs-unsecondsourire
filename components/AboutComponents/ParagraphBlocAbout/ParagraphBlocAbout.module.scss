@@ -1,0 +1,120 @@
+@import "../../../styles/variable.scss";
+
+$mobile-width: 600px;
+$max-destop-width:500px;
+.global_container{
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    background-color: $background-color-blue;
+}
+.global_content{
+    max-width: 1300px;
+    @media  screen and (min-width: $mobile-width) {
+        display: flex;
+        flex-direction: row-reverse;
+        &.reverse_block{
+            flex-direction: row !important;
+        }
+
+        .right_container{
+            margin-right: 30px;
+        }
+    }
+    .right_container{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        @media  screen and (min-width: $mobile-width) {
+
+        }
+
+
+        .disc{
+       
+            position: absolute ;
+            z-index: 1;
+            background-color: $primary-color-dark-blue;
+            margin-top: 15%;
+            margin-right: 15%;
+            @media  screen and (min-width: $mobile-width) {
+                margin-top: 25%;
+                margin-right: 25%;
+            }
+        }
+        .image_wrapper{
+            position: relative !important;
+        }
+        .image_container{
+            
+            z-index: 3;
+            height: 50vw;
+            width: 50vw;
+            max-height: $max-destop-width;
+            max-width: $max-destop-width;
+            overflow: hidden;
+            border-radius: 100%;
+            @media  screen and (min-width: $mobile-width) {
+                margin-top: 20%;
+            }
+   
+            @media screen and (max-width: $mobile-width){
+                width: 90vw;
+                height: 90vw;
+                margin-left: 0%;
+           
+            }
+
+        
+
+        .image{
+            height: 100%;
+            width: 100%;
+            position: absolute !important;
+        }
+
+
+    }
+    }
+
+    .lef_container{
+        padding: 20px;
+        .title, .description{
+            margin: 0;
+            padding: 0;
+        }
+        .title{
+            margin-top: 20%;
+            font-family: $font-family-title;
+            font-weight: 300;
+            font-size: clamp(30px, 10vw, 70px);
+            @media  screen and (min-width: $mobile-width) {
+                font-size: clamp(30px, 8vw, 60px);
+                
+            }
+        }
+
+        .description{
+            font-size: 1rem;
+            line-height: 1.8rem;
+            max-width: 500px;
+            @media  screen and (min-width: $mobile-width) {
+                padding-right: 20%;
+             
+            }
+
+        }
+    }
+}
+
+@keyframes rotationFlower {
+    0% { 
+        rotate:0deg;
+    }
+    100%{
+        rotate:180deg;
+    }
+
+  
+  
+  }

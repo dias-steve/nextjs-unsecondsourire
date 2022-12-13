@@ -43,7 +43,7 @@ export default function Bloc1Hero({data}) {
     <div className={styles.global_container}>
       <div className={styles.content_wrapper}>
         <div className={styles.left_container}>
-            <h1 className={styles.title}> {title} </h1>
+            <h1 className={styles.title} dangerouslySetInnerHTML={{__html: title}}/>
             <p className={styles.description}>{description}</p>
             <div className={styles.btn_action_wrapper}>
                 <div className={[styles.single_btn_wrapper, styles.btn_primary_wrapper].join(" ")}>   
