@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { convertEnglishToFrenchDay, formatDate } from '../../utils/datetranslater.utils'
+import { convertEnglishToFrenchDay, formatDate } from '../../utils/datetranslater.utils.js'
 import SecondBtn from '../SecondBtn/SecondBtn'
 
 import styles from './PostCard.module.scss'
