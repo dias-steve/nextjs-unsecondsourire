@@ -81,7 +81,7 @@ export default function Actions(props) {
           </div>
           <div className={styles.author_container}>
             <h3 className={styles.author_text}>
-              {author} - {date}
+              {author}
             </h3>
           </div>
           <h1

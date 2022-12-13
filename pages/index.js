@@ -16,15 +16,13 @@ export default function Home(props) {
   const homeData = props.homeData
   const generalSettings = props.generalSettings
   const dispatch = useDispatch();
+
   /**
    * Initializing of the page
    */
   useEffect(() => {
     initializePage(dispatch);
   },[])
-
-
-
 
   return (
     <>
