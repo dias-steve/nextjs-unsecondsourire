@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
 
 gsap.registerPlugin(ScrollTrigger);
-export default function index(props) {
+export default function Index(props) {
     const {
       bloc_hero,
       bloc_list_befor_aboutsec,
