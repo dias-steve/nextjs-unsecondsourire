@@ -1,10 +1,17 @@
 import React from 'react'
+import gsap from "gsap/dist/gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+
 import HeroBlocAbout from '../../components/AboutComponents/HeroBlocAbout/HeroBlocAbout';
 import ParagraphBlocAbout from '../../components/AboutComponents/ParagraphBlocAbout/ParagraphBlocAbout';
 import BlocManager from '../../components/BlocManager/BlocManager';
 import BlocAbout from '../../components/HomePageComponents/BlocAbout/BlocAbout';
 import BlocMembership from '../../components/HomePageComponents/BlocMembership/BlocMembership';
+import LogoBand from '../../components/LogoBand/LogoBand';
 import styles from './About.module.scss';
+
+gsap.registerPlugin(ScrollTrigger);
 export default function index(props) {
     const {
       bloc_hero,
@@ -23,7 +30,8 @@ export default function index(props) {
             <BlocManager contentList={bloc_list_befor_aboutsec} />
             <BlocAbout data={bloc_aboutsec} notShowBtn={true} notShowLink={true} />
             <BlocManager contentList={bloc_list_after_aboutser} />
-            <BlocMembership data={bloc_member} />
+            <LogoBand gsap={gsap} />
+            <BlocMembership data={bloc_member} color={'blue'} />
         </div>
 
     </div>

@@ -1,0 +1,73 @@
+@import '../../styles/variable.scss';
+.global_container{
+    width: 100vw;
+
+    overflow: hidden;
+    position: relative;
+    height: fit-content;
+    padding: clamp(150px,10%, 300px) 0%;
+
+
+    &.blue_bg{
+        background-color: $background-color-blue;
+    }
+
+    &.pink_bg{
+        background-color: $background-color-pink;
+    }
+
+    .band_wrapper{
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: fit-content;
+ 
+   
+
+
+        &.yellow_band{
+            margin-top: 10%;
+            background-color: $primary-color-yellow;
+  
+            padding: 10px;
+            height: clamp(100px, 7vw, 300px);
+      
+            img.sigle{
+           
+                width: clamp(110px, 7vw, 300px);
+                margin: 0 0.5vw;
+                padding: 0;
+    
+            }
+        }
+        &.blue_band{
+
+            margin-top: 0%;
+            background-color: $primary-color-dark-blue;
+            padding: 0px;
+       
+            height:clamp(50px ,5vw, 100px);
+          
+            
+            img.sigle{
+                width: clamp(80px ,5vw, 100px);
+                margin: 0 0px;
+                filter:  brightness(0) invert(1);
+                
+    
+            }
+           
+        }
+
+    }
+}
+
+.round{
+
+    height: 100px;
+    width: 100px;
+ 
+
+}
