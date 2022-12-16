@@ -21,7 +21,7 @@ export default function Home(props) {
    * Initializing of the page
    */
   useEffect(() => {
-    initializePage(dispatch);
+    initializePage(dispatch, generalSettings);
   },[])
 
   return (

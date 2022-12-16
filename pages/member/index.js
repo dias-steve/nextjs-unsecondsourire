@@ -16,7 +16,7 @@ export default function MemberPage(props) {
    * Initializing of the page
    */
   useEffect(() => {
-    initializePage(dispatch);
+    initializePage(dispatch, generalSettings);
   },[])
 
   return (

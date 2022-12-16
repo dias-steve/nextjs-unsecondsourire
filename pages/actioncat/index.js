@@ -35,7 +35,7 @@ export default function ActionCat(props) {
   /** Initialization of data */
 
   useEffect(() => {
-    initializePage(dispatch);
+    initializePage(dispatch, props.generalSettings);
   },[])
 
 

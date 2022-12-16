@@ -30,7 +30,7 @@ export default function PostCat(props) {
   /** Initialization of data */
 
   useEffect(() => {
-    initializePage(dispatch);
+    initializePage(dispatch, props.generalSettings);
   },[])
 
   useEffect(() => {

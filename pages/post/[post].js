@@ -24,7 +24,7 @@ export default function Post(props) {
  * Initializing of the page
  */
 useEffect(() => {
-  initializePage(dispatch);
+  initializePage(dispatch, generalSettings);
 },[])
   
   console.log(props.postData);

@@ -40,7 +40,7 @@ export default function Actions(props) {
    * Initializing of the page
    */
   useEffect(() => {
-    initializePage(dispatch);
+    initializePage(dispatch,generalSettings);
   }, []);
 
   console.log(props.postData);

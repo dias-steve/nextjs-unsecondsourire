@@ -10,6 +10,8 @@ import BlocAbout from '../../components/HomePageComponents/BlocAbout/BlocAbout';
 import BlocMembership from '../../components/HomePageComponents/BlocMembership/BlocMembership';
 import LogoBand from '../../components/LogoBand/LogoBand';
 import styles from './About.module.scss';
+import { useDispatch, useSelector } from "react-redux";
+import { initializePage } from '../../utils/global.utils';
 
 gsap.registerPlugin(ScrollTrigger);
 export default function index(props) {
@@ -21,6 +23,8 @@ export default function index(props) {
       bloc_member
     } = props.aboutData;
 
+    const dispatch = useDispatch();
+    initializePage(dispatch, props.generalSettings);
 
 
   return (

@@ -2,47 +2,47 @@ import React from "react";
 import EnMaintenancePage from "../EnMaintenance/EnMaintenancePage";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const mapState = (state) => ({
   auth: state.auth.auth,
 });
 
 export default function Container(props) {
-  const generalSettings= props.children.props.generalSettings;
-  const maintenanceMode = generalSettings ? generalSettings.maintenance_mode : false;
+  const generalSettings = props.children.props.generalSettings;
+  const maintenanceMode = generalSettings
+    ? generalSettings.maintenance_mode
+    : false;
 
-  const { auth } = useSelector(mapState)
-
+  const { auth } = useSelector(mapState);
 
   const isAccessAllowed = () => {
-    if (maintenanceMode?.is_activated){
-      if(auth.is_auth){
+    if (maintenanceMode?.is_activated) {
+      if (auth.is_auth) {
         return true;
-      }else{
+      } else {
         return false;
       }
-    }else{
+    } else {
       return true;
     }
-  }
-
+  };
 
   return (
-   <>
-    { !isAccessAllowed() ?  
-    
-    <EnMaintenancePage
-      maintenanceData={maintenanceMode}
-      generalSettings={generalSettings}
-    />:     
-    
     <>
-      <Header/>
-   
-      {props.children}
-      <p>footer</p>
-    </> }
+      {!isAccessAllowed() ? (
+        <EnMaintenancePage
+          maintenanceData={maintenanceMode}
+          generalSettings={generalSettings}
+        />
+      ) : (
+        <>
+          <Header />
 
+          {props.children}
+          <Footer />
+        </>
+      )}
     </>
   );
 }
