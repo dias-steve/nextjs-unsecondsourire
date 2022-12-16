@@ -1,7 +1,8 @@
 import footerTypes from "./footer.types";
 
 export const INITIAL_STATE = {
-    footer_menu_list: {}
+    footer_menu_list: {},
+    copyright: "copyright",
 }
 
 const footerReducer =  (state=INITIAL_STATE,  action) => {
@@ -10,6 +11,11 @@ const footerReducer =  (state=INITIAL_STATE,  action) => {
             return {
                 ...state,
                 footer_menu_list: action.payload
+            }
+        case footerTypes.SET_FOOTER_COPYRIGHT:
+            return {
+                 ...state, 
+                copyright: action.payload 
             }
         default:
             return state;

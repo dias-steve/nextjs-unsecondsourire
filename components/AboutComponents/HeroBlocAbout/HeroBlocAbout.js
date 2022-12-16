@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { v4 as uuidv4 } from 'uuid';
 export default function HeroBlocAbout({data}) {
     const {image, title, paragraph} = data;
-    console.log(data);
+
   return (
     <div className={styles.global_container}>
         <div className={styles.global_content}>

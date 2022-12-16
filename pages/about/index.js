@@ -12,6 +12,7 @@ import LogoBand from '../../components/LogoBand/LogoBand';
 import styles from './About.module.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
+import Head from 'next/head';
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Index(props) {
@@ -20,7 +21,8 @@ export default function Index(props) {
       bloc_list_befor_aboutsec,
       bloc_list_after_aboutser,
       bloc_aboutsec,
-      bloc_member
+      bloc_member,
+      seo
     } = props.aboutData;
 
     const dispatch = useDispatch();
@@ -28,9 +30,15 @@ export default function Index(props) {
 
 
   return (
+
+    <>
+    <Head>
+      <title>{seo.title_seo}</title>
+      <meta name="description" content={seo.meta_description_seo} />
+    </Head>
     <div className={styles.global_container}>
         <div className={styles.global_content}>
-            <HeroBlocAbout data={bloc_hero}/>-
+            <HeroBlocAbout data={bloc_hero}/>
             <BlocManager contentList={bloc_list_befor_aboutsec} />
             <BlocAbout data={bloc_aboutsec} notShowBtn={true} notShowLink={true} />
             <BlocManager contentList={bloc_list_after_aboutser} />
@@ -39,6 +47,7 @@ export default function Index(props) {
         </div>
 
     </div>
+    </>
   )
 }
 

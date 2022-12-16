@@ -41,8 +41,6 @@ export default function LogoBand({color, gsap}) {
     /** Annimation 1 */
     useEffect(() => {
       const elyellowBand = yellowBandRef.current;
-      console.log(elyellowBand)
-  
       gsap.timeline(       
         {scrollTrigger:{
           trigger: elyellowBand,
@@ -68,9 +66,7 @@ export default function LogoBand({color, gsap}) {
 
     /**Anniamtion 2 */
     useEffect(() => {
-        const elBlueBand = blueBandRef.current;
-        console.log(elBlueBand)
-    
+        const elBlueBand = blueBandRef.current;  
         gsap.timeline(       
           {scrollTrigger:{
             trigger: elBlueBand,
