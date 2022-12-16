@@ -1,18 +1,29 @@
 import React from 'react'
 import HeroBlocAbout from '../../components/AboutComponents/HeroBlocAbout/HeroBlocAbout';
 import ParagraphBlocAbout from '../../components/AboutComponents/ParagraphBlocAbout/ParagraphBlocAbout';
+import BlocManager from '../../components/BlocManager/BlocManager';
+import BlocAbout from '../../components/HomePageComponents/BlocAbout/BlocAbout';
+import BlocMembership from '../../components/HomePageComponents/BlocMembership/BlocMembership';
 import styles from './About.module.scss';
 export default function index(props) {
-    const {bloc_hero} = props.aboutData;
+    const {
+      bloc_hero,
+      bloc_list_befor_aboutsec,
+      bloc_list_after_aboutser,
+      bloc_aboutsec,
+      bloc_member
+    } = props.aboutData;
 
 
 
   return (
     <div className={styles.global_container}>
         <div className={styles.global_content}>
-            <HeroBlocAbout data={bloc_hero}/>
-            <ParagraphBlocAbout data={bloc_hero}/>
-
+            <HeroBlocAbout data={bloc_hero}/>-
+            <BlocManager contentList={bloc_list_befor_aboutsec} />
+            <BlocAbout data={bloc_aboutsec} notShowBtn={true} notShowLink={true} />
+            <BlocManager contentList={bloc_list_after_aboutser} />
+            <BlocMembership data={bloc_member} />
         </div>
 
     </div>

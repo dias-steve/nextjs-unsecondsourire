@@ -5,7 +5,7 @@ import PrimaryBtn from '../../PrimaryBtn/PrimaryBtn';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 
-const MissionSection = ({data}) => {
+const MissionSection = ({data, notShowLink}) => {
     const {title, description, thumbnail} = data;
   
     return (
@@ -30,6 +30,7 @@ const MissionSection = ({data}) => {
             <div className={styles.right_container}>
             <h2 className={styles.title_mission} dangerouslySetInnerHTML={{__html:title}}/>
             <p className={styles.decription_mission} dangerouslySetInnerHTML={{__html:description}}/>
+            { !notShowLink &&
             <div className={styles.btn_wrapper}>
                     <SecondBtn  
                             label={'Voir plus'}
@@ -38,13 +39,14 @@ const MissionSection = ({data}) => {
                      />
                     
             </div>
+}
             </div>
         </div>
     )
 }
 
 
-export default function BlocAbout({data}) {
+export default function BlocAbout({data ,notShowBtn, notShowLink}) {
 
     const {missions_list, slogan, image_down, image_up} = data;
  
@@ -59,7 +61,7 @@ export default function BlocAbout({data}) {
                 {
                     Array.isArray(missions_list) &&
                     missions_list.map(mission => (
-                        <MissionSection data={mission} key= {uuidv4()} />
+                        <MissionSection data={mission} notShowLink={notShowLink} key= {uuidv4()} />
                     ))
                 }
             </div>
@@ -83,10 +85,11 @@ export default function BlocAbout({data}) {
             </div>
             <div className={styles.slogan_wrapper}>
                 <h2 className={styles.title_slogan} dangerouslySetInnerHTML={{__html:slogan}}/>
+                {!notShowBtn &&
                 <PrimaryBtn
                     label={"Decouvrir notre association"}
                     link={'/about'}
-                />
+                />}
             </div>
             <div className={styles.image_down_container}>
                 <div className={styles.bg_image_wrapper}/>

@@ -15,6 +15,9 @@ $max-destop-width:500px;
         flex-direction: row-reverse;
         &.reverse_block{
             flex-direction: row !important;
+            .lef_container{
+                margin-left: 5%;
+            }
         }
 
         .right_container{
@@ -25,6 +28,7 @@ $max-destop-width:500px;
         position: relative;
         display: flex;
         justify-content: center;
+        align-items: center;
         @media  screen and (min-width: $mobile-width) {
 
         }
@@ -87,6 +91,7 @@ $max-destop-width:500px;
             margin-top: 20%;
             font-family: $font-family-title;
             font-weight: 300;
+            max-width: 600px;
             font-size: clamp(30px, 10vw, 70px);
             @media  screen and (min-width: $mobile-width) {
                 font-size: clamp(30px, 8vw, 60px);
@@ -97,7 +102,7 @@ $max-destop-width:500px;
         .description{
             font-size: 1rem;
             line-height: 1.8rem;
-            max-width: 500px;
+            max-width: 600px;
             @media  screen and (min-width: $mobile-width) {
                 padding-right: 20%;
              
