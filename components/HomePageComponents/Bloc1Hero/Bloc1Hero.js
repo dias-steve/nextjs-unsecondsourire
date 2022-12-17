@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './Bloc1Hero.module.scss';
 import globalStyles from '../../../styles/globalsSettings.module.scss'
 import Image from 'next/image';
 import PrimaryBtn from '../../PrimaryBtn/PrimaryBtn';
 import SecondBtn from '../../SecondBtn/SecondBtn';
 import { v4 as uuidv4 } from 'uuid';
+import { bandAnimation, bubbleAnimation } from './Bloc1Hero.animations';
 
 
 
@@ -36,8 +37,20 @@ const GenerateImages = ({nbImage, srcImage, altImage}) => {
         </>
     )
 }
-export default function Bloc1Hero({data}) {
+
+export default function Bloc1Hero({data, gsap}) {
     const { title, description, thumbnail} = data;
+    /** Annimation 1 */
+    const bandRef = useRef(null);
+    const imageRef = useRef(null);
+  
+    useEffect(() => {
+            bubbleAnimation(gsap, imageRef)
+      }, [])
+
+
+   
+    
 
   return (
     <div className={styles.global_container}>
@@ -76,7 +89,7 @@ export default function Bloc1Hero({data}) {
          
             />
                 </div>
-                <div className={styles.image_wrapper}>
+                <div ref= {imageRef} className={styles.image_wrapper}>
                     <Image
                         src = {thumbnail.url}
                         alt={thumbnail.alt}
@@ -91,19 +104,7 @@ export default function Bloc1Hero({data}) {
         </div>
 
       </div>
-      <div className={styles.logo_tracks}>
-     
 
-         
-            <div className={styles.logo_list}>
-                <GenerateImages
-                nbImage={10}
-                srcImage='/sigle-s2.svg'
-                altImage='logo'
-                    />
-            </div>
-            
-      </div>
     </div>
   )
 }

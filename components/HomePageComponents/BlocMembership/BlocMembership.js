@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { useEffect } from 'react';
+import { useRef } from 'react';
+import { bubbleSlideAnimation } from './BlocMembership.animation';
 import styles from './BlocMembership.module.scss';
 
 const BtnAction = ({title, description, link, heart}) => {
@@ -27,16 +30,21 @@ const BtnAction = ({title, description, link, heart}) => {
         </Link>
     )
 }
-export default function BlocMembership({data}) {
+export default function BlocMembership({data, gsap}) {
    
-
     const {donation_description, member_description, image, donation_url } = data
+
+    const imageRef = useRef(null)
+
+    useEffect(() => {
+        bubbleSlideAnimation(gsap, imageRef)
+    },[])
              //dangerouslySetInnerHTML={{__html:title}}
   return (
     <div className={styles.global_container}>
         <div className={styles.global_content}>
             <div className={styles.left_container}>
-                <div className={styles.image_wrapper}>
+                <div ref={imageRef} className={styles.image_wrapper}>
                     { image?.url &&
                     <Image
                           src = {image.url}

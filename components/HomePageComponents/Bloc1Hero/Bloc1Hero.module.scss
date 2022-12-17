@@ -5,6 +5,8 @@ $mobile-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 2;
 
 }
 .content_wrapper{
@@ -15,7 +17,7 @@ $mobile-width: 600px;
     
         }
         width: 100vw;
-        overflow-x: hidden;
+        overflow: hidden;
         max-width: 1500px;
         @media screen and (max-width: $mobile-width){
                 flex-direction: column-reverse;
@@ -143,11 +145,11 @@ $mobile-width: 600px;
     width: 100vw;
     height: 19vh;
     max-height: 130px;
-    margin-top: -9%;
+
     transform: translateY(9%);
     overflow: hidden;
     z-index: 1;
-
+    
     display: flex;
     align-items: center;
     @media screen and (max-width: $mobile-width){

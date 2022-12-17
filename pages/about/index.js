@@ -38,12 +38,12 @@ export default function Index(props) {
     </Head>
     <div className={styles.global_container}>
         <div className={styles.global_content}>
-            <HeroBlocAbout data={bloc_hero}/>
-            <BlocManager contentList={bloc_list_befor_aboutsec} />
-            <BlocAbout data={bloc_aboutsec} notShowBtn={true} notShowLink={true} />
-            <BlocManager contentList={bloc_list_after_aboutser} />
+            <HeroBlocAbout gsap={gsap} data={bloc_hero}/>
+            <BlocManager gsap={gsap} contentList={bloc_list_befor_aboutsec} />
+            <BlocAbout gsap={gsap} data={bloc_aboutsec} notShowBtn={true} notShowLink={true} />
+            <BlocManager gsap={gsap} contentList={bloc_list_after_aboutser} />
             <LogoBand gsap={gsap} />
-            <BlocMembership data={bloc_member} color={'blue'} />
+            <BlocMembership  gsap={gsap} data={bloc_member} color={'blue'} />
         </div>
 
     </div>

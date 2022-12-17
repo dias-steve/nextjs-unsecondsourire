@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './BlocAbout.module.scss'
 import SecondBtn from '../../SecondBtn/SecondBtn'
 import PrimaryBtn from '../../PrimaryBtn/PrimaryBtn';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
+import { bubblePopAnimation, bubbleSlideAnimation } from './BlocAbout.animations';
 
 const MissionSection = ({data, notShowLink}) => {
     const {title, description, thumbnail} = data;
-  
+
     return (
 
         <div className={styles.global_container_mission}>
@@ -46,10 +47,19 @@ const MissionSection = ({data, notShowLink}) => {
 }
 
 
-export default function BlocAbout({data ,notShowBtn, notShowLink}) {
+export default function BlocAbout({data ,notShowBtn, notShowLink,gsap}) {
 
     const {missions_list, slogan, image_down, image_up} = data;
- 
+    const imageUpref = useRef();
+    const imageDownref = useRef();
+    useEffect(() => {
+        bubblePopAnimation(gsap,imageUpref)
+    },[])
+
+    useEffect(() => {
+        bubbleSlideAnimation(gsap, imageDownref)
+    },[])
+
   return (
     <div className={styles.global_container}>
         <div className={styles.mission_list_wrapper}>
@@ -70,7 +80,7 @@ export default function BlocAbout({data ,notShowBtn, notShowLink}) {
         <div className={styles.slogan_container}>
             <div className={styles.image_up_container}>
                
-                <div className={styles.image_wrapper}>
+                <div ref={imageUpref} className={styles.image_wrapper}>
                 { image_up?.url &&
                         <Image
                                 src = {image_up.url}
@@ -93,7 +103,7 @@ export default function BlocAbout({data ,notShowBtn, notShowLink}) {
             </div>
             <div className={styles.image_down_container}>
                 <div className={styles.bg_image_wrapper}/>
-                <div className={styles.image_wrapper}>
+                <div ref={imageDownref} className={styles.image_wrapper}>
                     { image_down?.url &&
                         <Image
                                 src = {image_down.url}

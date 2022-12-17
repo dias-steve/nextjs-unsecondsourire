@@ -12,24 +12,24 @@ import styles from'./BlocManager.module.scss';
 
 
 
-export const BlocContent = ({content}) => {
+export const BlocContent = ({content, gsap}) => {
 
     switch (content.bloc_type){
         case 'TextImage':
-            return  <ParagraphBlocAbout data={content} />;
+            return  <ParagraphBlocAbout gsap={gsap} data={content} />;
         default:
             return 'component not found';
         
     }
 
 }
-export default function BlocManager({contentList}) {
+export default function BlocManager({contentList, gsap}) {
 
     
   return (
     <div className={styles.global_container}>
         { contentList && Array.isArray(contentList) && contentList.length > 0 &&
-            contentList.map(bloc => <BlocContent key={uuidv4()} content={bloc}/>)
+            contentList.map(bloc => <BlocContent gsap={gsap} key={uuidv4()} content={bloc}/>)
         }
 
     </div>

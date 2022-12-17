@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './ParagraphBlocAbout.module.scss';
 import Image from 'next/image';
 import { v4 as uuidv4 } from 'uuid';
-export default function ParagraphBlocAbout({data}) {
+import { bubbleSlideAnimation } from './ParagraphBlocAbout.animations';
+export default function ParagraphBlocAbout({data, gsap}) {
     
     const {image, title, paragraph, image_to_left} = data;
     const reverse = image_to_left ? true : false;
+
+    const imageRef = useRef(null)
+
+    useEffect(() => {
+        bubbleSlideAnimation(gsap, imageRef)
+    }, [])
   return (
     <div className={styles.global_container}>
         <div className={[styles.global_content, reverse ? styles.reverse_block : " "].join(" ")}>
@@ -16,7 +23,7 @@ export default function ParagraphBlocAbout({data}) {
           
 
                     </div>
-                    <div className={[styles.image_container, styles.image_wrapper].join(" ")}>
+                    <div ref={imageRef} className={[styles.image_container, styles.image_wrapper].join(" ")}>
                         <Image
                             src = {image.url}
                             alt={image.alt}

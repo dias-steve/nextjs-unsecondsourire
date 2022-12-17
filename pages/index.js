@@ -11,6 +11,11 @@ import BlocAbout from '../components/HomePageComponents/BlocAbout/BlocAbout';
 import BlocMembership from '../components/HomePageComponents/BlocMembership/BlocMembership';
 import BlocSocial from '../components/HomePageComponents/BlocSocial/BlocSocial';
 
+import gsap from "gsap/dist/gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import LogoBand from '../components/LogoBand/LogoBand';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home(props) {
   const homeData = props.homeData
@@ -31,27 +36,32 @@ export default function Home(props) {
         <meta name="description" content={homeData.seo.meta_description_seo}/>
       </Head>
       <div className={styles.container}>
-        <Bloc1Hero data={homeData.bloc1}/>
+        <Bloc1Hero gsap={gsap} data={homeData.bloc1}/>
+        <div className={styles.logoband_wrapper}>
+        <LogoBand gsap={gsap} color={'pink'}/>
+        </div>
+        <BlocPostList 
+          data={homeData.bloc5_list_action}
+          title={'Nos Actions'} 
+         
+          cardColor={'dark-blue'}
+          linkPrimaryBtn={'/actioncat'}
+          labelPrimaryBtn={'Voir toutes nos actions'}
+  
+          />
+        <BlocAbout gsap= {gsap} data= {homeData.bloc4_apropos}/>
+
         <BlocPostList 
           data={homeData.bloc2_list_post} 
           title={'Nos Actualités'}
           link={'./actualite'}
           labelBtn='Voir toutes nos actualités'
-          cardColor={'dark-blue'}
+          cardColor={'light-blue'}
+         
 
         
         />
-        <BlocAbout data= {homeData.bloc4_apropos}/>
-        <BlocPostList 
-          data={homeData.bloc5_list_action}
-          title={'Nos Actions'} 
-         
-          cardColor={'light-blue'}
-          linkPrimaryBtn={'/actioncat'}
-          labelPrimaryBtn={'Voir toutes nos actions'}
-          colorPrimaryBtn={'blue'}
-          />
-          <BlocMembership data={homeData.bloc6_membership} />
+          <BlocMembership gsap={gsap} data={homeData.bloc6_membership} />
           <BlocSocial mediaList= {generalSettings.external_links.media_list} />
       </div>
     </>
