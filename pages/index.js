@@ -47,6 +47,7 @@ export default function Home(props) {
           cardColor={'dark-blue'}
           linkPrimaryBtn={'/actioncat'}
           labelPrimaryBtn={'Voir toutes nos actions'}
+          gsap= {gsap}
   
           />
         <BlocAbout gsap= {gsap} data= {homeData.bloc4_apropos}/>
@@ -57,6 +58,7 @@ export default function Home(props) {
           link={'./actualite'}
           labelBtn='Voir toutes nos actualités'
           cardColor={'light-blue'}
+          gsap= {gsap}
          
 
         

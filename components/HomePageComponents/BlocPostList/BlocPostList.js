@@ -5,7 +5,7 @@ import styles from './BlocPostList.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 import PrimaryBtn from '../../PrimaryBtn/PrimaryBtn';
 
-export default function BlocPostList({data, title, link, cardColor, labelBtn, labelPrimaryBtn, linkPrimaryBtn, colorPrimaryBtn, colorSecondaryBtn}) {
+export default function BlocPostList({data, title, link, cardColor, labelBtn, labelPrimaryBtn, linkPrimaryBtn, colorPrimaryBtn, colorSecondaryBtn, gsap}) {
     const { list_articles } = data;
     return (
         <div className={styles.global_container}>
@@ -31,7 +31,7 @@ export default function BlocPostList({data, title, link, cardColor, labelBtn, la
                         {
                             list_articles.map(article => (
                                 <div className = {styles.postcard_wrapper}  key= {uuidv4()} >
-                                    <PostCard data={article} color={cardColor} />
+                                    <PostCard gsap={gsap} data={article} color={cardColor} />
                                 </div>
                             ))
                         }

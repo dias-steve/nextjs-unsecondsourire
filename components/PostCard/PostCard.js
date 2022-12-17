@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useRef } from 'react'
+import { useEffect } from 'react'
 import { convertEnglishToFrenchDay, formatDate } from '../../utils/dateTranslater.utils.js'
 import SecondBtn from '../SecondBtn/SecondBtn'
+import { slideAnimation } from './PostCard.animation.js'
 
 import styles from './PostCard.module.scss'
 
@@ -32,13 +34,23 @@ const DateDisplayer = ({rawDate}) =>{
         </div>
     )
 } 
-export default function PostCard({data, color}) {
+export default function PostCard({data, color, gsap}) {
     const {title, thumbnail, link, date} = data;
+
+    const cardBackRef = useRef(null);
+    useEffect(() => {
+        if(gsap){
+            slideAnimation(gsap,cardBackRef);
+        }
+
+    },[]);
+
   return (
     <div className={styles.global_container}>
         <Link href={link}>
             <a>
-            <div className={styles.background_yellow}>
+            <div  className={styles.background_yellow}>
+                <div ref={cardBackRef} className={styles.background}/>
                 <div className={[styles.background_blue, color ? convertColorStyle(color) : styles.bg_blue_dark ].join(" ")}>
                     <div className={styles.image_container}>
                         <div className={styles.image_wrapper}>
