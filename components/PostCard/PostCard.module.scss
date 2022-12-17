@@ -8,7 +8,7 @@ $width-mobile: 310px;
 $space-mobile: 10px;
 
 .date_global_container{
-    background-color: $primary-color-green;
+    background-color: $primary-color-yellow;
     padding: 10px 10px 6px 10px;
     border-radius: 100px;
     position: absolute;
@@ -16,7 +16,7 @@ $space-mobile: 10px;
     color: black !important;
 
     &.passed_date{
-        background-color: rgb(210, 155, 155)
+        background-color: $primary-color-pink;
     }
     .date{
         font-size: 0.9rem;
