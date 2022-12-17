@@ -9,12 +9,12 @@ $space-mobile: 10px;
 
 .date_global_container{
     background-color: $primary-color-yellow;
-    padding: 10px 10px 6px 10px;
+    padding: 10px 10px 10px 10px;
     border-radius: 100px;
     position: absolute;
     margin-top: -15px;
     color: black !important;
-
+    font-family: $font-family-title;
     &.passed_date{
         background-color: $primary-color-pink;
         display: none;
