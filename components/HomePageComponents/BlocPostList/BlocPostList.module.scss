@@ -1,13 +1,16 @@
 @import '../../../styles/variable.scss';
 .global_container{
     background-color: $background-color-blue;
-    padding: 2% 0;
+    padding: clamp(80px,2%, 1000px ) 0;
     display: flex;
     flex-direction: columns;
     justify-content: center;
     width: 100%;
     overflow-x: hidden;
  
+    &.pink_bg{
+        background-color: $background-color-pink !important;
+    }
     .content_container{
         width: 100%;
         max-width: $max-width-global-content;

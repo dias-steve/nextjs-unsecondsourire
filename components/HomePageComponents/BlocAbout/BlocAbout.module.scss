@@ -2,7 +2,7 @@
 .global_container{
 
     margin-top: 10%;
-
+    padding: clamp(80px,2%, 1000px ) 0;
 
     height: fit-content;
     .mission_list_wrapper{

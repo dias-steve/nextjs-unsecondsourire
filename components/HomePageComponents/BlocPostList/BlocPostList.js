@@ -5,10 +5,10 @@ import styles from './BlocPostList.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 import PrimaryBtn from '../../PrimaryBtn/PrimaryBtn';
 
-export default function BlocPostList({data, title, link, cardColor, labelBtn, labelPrimaryBtn, linkPrimaryBtn, colorPrimaryBtn, colorSecondaryBtn, gsap}) {
+export default function BlocPostList({data, title, link, cardColor, labelBtn, labelPrimaryBtn, linkPrimaryBtn, colorPrimaryBtn, colorSecondaryBtn, gsap, colorBackgroundPink}) {
     const { list_articles } = data;
     return (
-        <div className={styles.global_container}>
+        <div className={[styles.global_container, colorBackgroundPink ? styles.pink_bg : " "].join(" ")}>
             <div className={styles.content_container}>
             { 
                 <div className={styles.header_bloc}>

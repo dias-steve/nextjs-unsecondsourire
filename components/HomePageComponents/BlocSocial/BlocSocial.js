@@ -5,9 +5,10 @@ import Link from 'next/link';
 
 const MediaCard = ({data}) => {
     const {media, url, id} = data;
+    const options = url.startsWith('http') ? {target:'_blank'} : {}
     return (
-        <Link href={url}>
-            <a>
+        <Link  {...options} href={url}>
+            <a {...options}>
             <div className={styles.global_container_mediacard}>
                 <div className={styles.image_wrapper}>
                     <img 
