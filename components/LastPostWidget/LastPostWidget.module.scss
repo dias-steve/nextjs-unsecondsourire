@@ -2,12 +2,11 @@
 .global_container{
     background-color: $primary-color-yellow;
     width: 280px;
-    position: fixed;
+ 
     z-index: 2;
-    right: 0;
-    bottom: 15vh;
+
     padding: 50px 30px;
-    border-radius: 100px 0 0 100px;
+    border-radius: 100px;
 
     display: flex;
     flex-direction: column;
