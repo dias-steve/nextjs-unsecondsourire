@@ -16,6 +16,21 @@ import { initializePage } from "../../utils/global.utils";
 
 import LastPostWidget from "../../components/LastPostWidget/LastPostWidget";
 import ActionForm from "../../components/ActionForm/ActionForm";
+import { convertEnglishToFrenchDay, formatDate } from "../../utils/dateTranslater.utils";
+
+const DateDisplayer = ({rawDate}) =>{
+  const newDate = new Date(rawDate).toDateString()
+ 
+   const passed = parseInt(formatDate(new Date()).replaceAll("-", ""), 10) > parseInt(rawDate.replaceAll("-", ""), 10)
+
+ 
+   const word = passed ? "C&#39était le ":'Aura lieu le ' 
+   return (
+       <div className={[styles.date_global_container, passed ? styles.passed_date : " " ].join(" ")}>
+        <span className={styles.date} dangerouslySetInnerHTML={{__html:word+convertEnglishToFrenchDay(newDate)}}/>
+       </div>
+   )
+} 
 
 export default function Actions(props) {
   const {
@@ -29,6 +44,7 @@ export default function Actions(props) {
     seo,
     last_posts_list,
     id,
+  
   } = props.postData;
   const dispatch = useDispatch();
   const generalSettings = props.generalSettings;
@@ -40,30 +56,17 @@ export default function Actions(props) {
    * Initializing of the page
    */
   useEffect(() => {
-    initializePage(dispatch,generalSettings);
+    initializePage(dispatch, generalSettings);
   }, []);
 
   console.log(props.postData);
   return (
     <>
-      <GoogleReCaptchaProvider
-        reCaptchaKey={SITE_KEY}
-        scriptProps={{
-          async: false,
-          defer: false,
-          appendTo: "head",
-          nonce: undefined,
-        }}
-      >
-        <ActionForm action={"[Action id:" + id + " title:" + title + "]"} />
-      </GoogleReCaptchaProvider>
       <Head>
         <title>{seo.title_seo}</title>
         <meta name="description" content={seo.meta_description_seo} />
       </Head>
       <div className={styles.global_container}>
-        <SocialKeyboard hostURL={"https://www.unsecondsourire.fr"} />
-
         <div className={styles.image_wrapper}>
           {thumbnail?.url && (
             <Image
@@ -75,21 +78,45 @@ export default function Actions(props) {
             />
           )}
         </div>
-        <div className={styles.content_wrapper}>
-          <div className={styles.btn_taxinomie_wrapper}>
-            <TokenBtnCatList listCat={taxinomie} />
-          </div>
-          <div className={styles.author_container}>
-            <h3 className={styles.author_text}>
-              {author}
-            </h3>
-          </div>
-          <h1
-            className={styles.post_title}
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
 
-          <ContentPost content={content} />
+        <div className={styles.action_text_container}>
+          <div className={styles.widget_column}>
+            <div className={styles.form_widget_wrapper}>
+              <GoogleReCaptchaProvider
+                reCaptchaKey={SITE_KEY}
+                scriptProps={{
+                  async: false,
+                  defer: false,
+                  appendTo: "head",
+                  nonce: undefined,
+                }}
+              >
+                <ActionForm
+                  action={"[Action id:" + id + " title:" + title + "]"}
+                />
+              </GoogleReCaptchaProvider>
+            </div>
+          </div>
+          <div className={styles.content_wrapper}>
+            <div className={styles.btn_taxinomie_wrapper}>
+              <TokenBtnCatList listCat={taxinomie} />
+            </div>
+            <div className={styles.author_container}>
+              <h3 className={styles.author_text}>{author}</h3>
+            </div>
+            <DateDisplayer rawDate={date.event_date}/>
+            <h1
+              className={styles.post_title}
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
+
+            <ContentPost content={content} />
+          </div>
+          <div className={styles.widget_column}>
+            <div className={styles.social_widget_wrapper}>
+              <SocialKeyboard hostURL={"https://www.unsecondsourire.fr"} />
+            </div>
+          </div>
         </div>
 
         {related_posts?.posts_list &&

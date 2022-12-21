@@ -36,20 +36,22 @@ $breakpoint: 1300px;
 .global_container{
     height: 600px;
     max-width: 500px;
-    width: 22%;
 
-    position: fixed;
     z-index: 3;
     background-color: $primary-color-light-blue;
     right: 0;
     top: 30%;
-    border-radius: 120px 0 0 120px;
+    border-radius: 120px;
 
     padding: 20px 50px;
     transition: 300ms;
     @media screen and (max-width:$breakpoint){
        padding: 20px 0 0 0;
        width: 100%;
+       border-radius: 120px 0 0 120px;
+   
+
+       position: fixed;
     }
 
     .wrapper_content{

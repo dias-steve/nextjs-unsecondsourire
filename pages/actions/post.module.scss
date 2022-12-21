@@ -7,6 +7,10 @@
     flex-direction: column;
     align-items: center;
     padding: 0 30px;
+    @media screen and (max-width: 770px) {
+        overflow: hidden;
+    }
+
 
     .image_wrapper{
         height: 50vh;
@@ -37,6 +41,31 @@
         }
     }
 
+    .action_text_container{
+        display: flex;
+        justify-content: center;
+
+        .widget_column{
+            padding: 35px;
+         
+            width: clamp(100px, 25vw, 500px );
+      
+            .form_widget_wrapper{
+                position: sticky;
+                top:10%;
+                @media screen and (max-width:1300px){
+                    position: fixed;
+                    z-index: 9;
+              
+                }
+            }
+
+            .social_widget_wrapper{
+                position: sticky;
+                top:70%;
+            }
+        }
+    }
     .btn_taxinomie_wrapper{
         margin-top: -3%;
         z-index: 2;
@@ -70,4 +99,31 @@
         position: relative;
         z-index: 4;
     }
+}
+
+.date_global_container{
+    margin-top: clamp(60px, 5%, 300px);
+    background-color: $primary-color-yellow;
+    padding: 10px 10px 10px 10px;
+    border-radius: 100px;
+   
+
+
+
+    color: black !important;
+    font-family: $font-family-title;
+    width: fit-content;
+    display: flex;
+    &.passed_date{
+        background-color: $primary-color-pink;
+
+    }
+    .date{
+        font-size: 0.8rem;
+        font-weight: 300;
+        text-align: center;
+        width: 100%;
+    }
+
+  
 }
