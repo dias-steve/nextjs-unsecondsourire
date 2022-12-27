@@ -11,6 +11,8 @@
     padding-top: 60px;
     transition: 1000ms;
     width: 100%;
+
+  
     
     .global_content{
         max-width: 1000px;
@@ -55,6 +57,12 @@
         }
         .filter_container{
   
+            @media screen and (max-width: 670px) {
+                position: sticky;
+                top: 0px;
+                z-index: 5;
+                background-color: $background-color-blue;
+            }
             width: 200px;
             .title_filter{
                 font-family: $font-family-title;
@@ -68,6 +76,12 @@
                 align-items: center;
                 width: 100%;
            
+            }
+
+            .filter_wrapper{
+                width: 100%;
+                position: sticky;
+                top: 10px;
             }
 
         }

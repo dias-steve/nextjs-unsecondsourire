@@ -20,8 +20,8 @@ import { convertEnglishToFrenchDay, formatDate } from "../../utils/dateTranslate
 
 const DateDisplayer = ({rawDate}) =>{
   const newDate = new Date(rawDate).toDateString()
- 
-   const passed = parseInt(formatDate(new Date()).replaceAll("-", ""), 10) > parseInt(rawDate.replaceAll("-", ""), 10)
+
+  const passed = parseInt(formatDate(new Date()).replaceAll("-", ""), 10) > parseInt(rawDate.replaceAll("-", ""), 10)
 
  
    const word = passed ? "C&#39était le ":'Aura lieu le ' 

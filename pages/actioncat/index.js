@@ -95,9 +95,11 @@ export default function ActionCat(props) {
      
       <div className={[styles.content_wrapper].join(" ")}>
         <div className={styles.filter_container}>
-          <h1 className={styles.title_filter}> Filtre </h1>
-          <FilterListPost  categoriesList={props.postsCatData}/>
-          <FilterActionDate />
+          <div className={styles.filter_wrapper}>
+            <span className={styles.title_filter}> Filtre </span>
+            <FilterListPost  categoriesList={props.postsCatData}/>
+            <FilterActionDate />
+          </div>
         </div>
         <div className={styles.list_result}>
           {is_loading ?<div className={styles.spinner_wrapper}> <Spinner />  </div>: 
@@ -105,7 +107,7 @@ export default function ActionCat(props) {
             <span className={styles.result_nb}>{nb_posts_found} action{nb_posts_found>1 && 's'} trouvée{nb_posts_found>1 && 's'}</span>
             <BlocPostList  
               data = {{list_articles:list_posts_raw }}
-              cardColor={'light-blue'}
+              
               />
             <div className={styles.pagination_container}>
               <Pagination />

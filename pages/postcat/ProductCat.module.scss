@@ -65,7 +65,18 @@
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
+                position: sticky;
+                top: 0px;
+                z-index: 5;
+                padding: 10px 0;
+                background-color: $background-color-blue;
            
+            }
+
+            .filter_wrapper{
+                width: 100%;
+                position: sticky;
+                top: 10px;
             }
 
         }

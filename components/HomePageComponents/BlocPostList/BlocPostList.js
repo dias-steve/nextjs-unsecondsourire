@@ -10,20 +10,24 @@ export default function BlocPostList({data, title, link, cardColor, labelBtn, la
     return (
         <div className={[styles.global_container, colorBackgroundPink ? styles.pink_bg : " "].join(" ")}>
             <div className={styles.content_container}>
-            { 
+            
+          
                 <div className={styles.header_bloc}>
-
-                    <h2 className={styles.title} dangerouslySetInnerHTML={{__html:title}}/>
-                    { link && labelBtn &&
+        
+                        <h2 className={styles.title} dangerouslySetInnerHTML={{__html:title}}/>
                     
+                { link && labelBtn &&
+                    <>
                         <SecondBtn  
                             label={labelBtn}
                             link={link}
                             color={'black'} />
+                    </>
+                    
                     }
-                
                 </div>
-            }
+              
+            
                 <div className={styles.body_bloc}>
                 { list_articles && Array.isArray(list_articles) && list_articles.length > 0 ?
                     <div className={[styles.list_post_container, list_articles.length > 3 ? styles.biglist : "" ].join(" ")}>

@@ -88,14 +88,19 @@ export default function PostCat(props) {
 
       <div className={[styles.content_wrapper].join(" ")}>
         <div className={styles.filter_container}>
-          <h1 className={styles.title_filter}> Filtre </h1>
+        <div className={styles.filter_wrapper}>
+          <span className={styles.title_filter}> Filtre </span>
           <FilterListPost  categoriesList={props.postsCatData}/>
+          </div>
         </div>
         <div className={styles.list_result}>
           {is_loading ?<div className={styles.spinner_wrapper}> <Spinner />  </div>: 
           <>
             <span className={styles.result_nb}>{nb_posts_found} article{nb_posts_found>1 && 's'} trouvé{nb_posts_found>1 && 's'}</span>
-            <BlocPostList  data = {{list_articles:list_posts_raw }}/>
+            <BlocPostList  
+              data = {{list_articles:list_posts_raw }}
+              cardColor={'light-blue'}
+              />
             <div className={styles.pagination_container}>
               <Pagination />
             </div>
