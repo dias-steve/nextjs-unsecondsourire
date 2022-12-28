@@ -13,6 +13,7 @@ import styles from './About.module.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from '../../utils/global.utils';
 import Head from 'next/head';
+import Seo from '../../components/Seo/Seo';
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Index(props) {
@@ -32,10 +33,7 @@ export default function Index(props) {
   return (
 
     <>
-    <Head>
-      <title>{seo.title_seo}</title>
-      <meta name="description" content={seo.meta_description_seo} />
-    </Head>
+    <Seo seoData={seo} />
     <div className={styles.global_container}>
         <div className={styles.global_content}>
             <HeroBlocAbout gsap={gsap} data={bloc_hero}/>

@@ -5,16 +5,14 @@ import Head from 'next/head';
 
 import styles from './Actualite.module.scss'
 import { v4 as uuidv4 } from 'uuid';
+import Seo from '../../components/Seo/Seo';
 export default function Actualite(props) {
   const data = props.oneArticleData;
   const {content, seo} = data;
   console.log(data)
   return (
     <>
-    <Head>
-      <title>{seo.title_seo}</title>
-      <meta name="description" content={seo.meta_description_seo}/>
-    </Head>
+  <Seo seoData={seo} />
     <div className={styles.global_container}>
       { content && Array.isArray(content) &&
         content.map(bloc => (<ContentBlocManager key={uuidv4()} data={bloc} />))

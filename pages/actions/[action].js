@@ -17,6 +17,7 @@ import { initializePage } from "../../utils/global.utils";
 import LastPostWidget from "../../components/LastPostWidget/LastPostWidget";
 import ActionForm from "../../components/ActionForm/ActionForm";
 import { convertEnglishToFrenchDay, formatDate } from "../../utils/dateTranslater.utils";
+import Seo from "../../components/Seo/Seo";
 
 const DateDisplayer = ({rawDate}) =>{
   const newDate = new Date(rawDate).toDateString()
@@ -62,10 +63,7 @@ export default function Actions(props) {
   console.log(props.postData);
   return (
     <>
-      <Head>
-        <title>{seo.title_seo}</title>
-        <meta name="description" content={seo.meta_description_seo} />
-      </Head>
+  <Seo seoData={seo} />
       <div className={styles.global_container}>
         <div className={styles.image_wrapper}>
           {thumbnail?.url && (

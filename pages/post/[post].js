@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { initializePage } from "../../utils/global.utils";
 import Head from "next/head";
 import LastPostWidget from "../../components/LastPostWidget/LastPostWidget";
+import Seo from "../../components/Seo/Seo";
 
 export default function Post(props) {
   const {
@@ -38,10 +39,7 @@ export default function Post(props) {
   console.log(props.postData);
   return (
     <>
-      <Head>
-        <title>{seo.title_seo}</title>
-        <meta name="description" content={seo.meta_description_seo} />
-      </Head>
+      <Seo seoData={seo} />
       <div className={styles.global_container}>
         <div className={styles.global_wrapper}>
           <div className={styles.image_wrapper}>

@@ -5,6 +5,7 @@ import Head from 'next/head';
 
 import styles from './MemberPage.module.scss'
 import MemberPageSection from '../../components/MemberPageSection/MemberPageSection';
+import Seo from '../../components/Seo/Seo';
 export default function MemberPage(props) {
 
   const data = props.memberData;
@@ -21,10 +22,7 @@ export default function MemberPage(props) {
 
   return (
     <>
-    <Head>
-      <title>{seo.title_seo}</title>
-      <meta name="description" content={seo.meta_description_seo}/>
-    </Head>
+  <Seo seoData={seo} />
     <div className={styles.global_container}>
       <MemberPageSection content= {content} />
     </div>

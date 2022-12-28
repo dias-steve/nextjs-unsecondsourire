@@ -4,16 +4,14 @@ import Head from "next/head";
 import ContentPost from '../../components/ContentPost/ContentPost';
 
 import styles from './Page.module.scss'
+import Seo from '../../components/Seo/Seo';
 
 export default function Page(props) {
     
     const {title, content, seo} = props.pageData
   return (
     <>
-    <Head>
-        <title>{seo.title_seo}</title>
-        <meta name="description" content={seo.meta_description_seo} />
-    </Head>
+  <Seo seoData={seo} />
     <div className= {styles.global_container}>
         <div className={styles.global_content}>
             <h1 className={styles.title}dangerouslySetInnerHTML={{__html: title}}/>

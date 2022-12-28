@@ -6,6 +6,7 @@ import Head from 'next/head';
 import styles from './contact.module.scss'
 import MemberPageSection from '../../components/MemberPageSection/MemberPageSection';
 import ContactPageSection from '../../components/ContactPageSection/ContactPageSection';
+import Seo from '../../components/Seo/Seo';
 export default function MemberPage(props) {
 
   const data = props.contactData;
@@ -22,10 +23,7 @@ export default function MemberPage(props) {
 
   return (
     <>
-    <Head>
-      <title>{seo.title_seo}</title>
-      <meta name="description" content={seo.meta_description_seo}/>
-    </Head>
+  <Seo seoData={Seo} />
     <div className={styles.global_container}>
       <ContactPageSection content= {content} />
     </div>

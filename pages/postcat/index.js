@@ -11,6 +11,7 @@ import { filterPostList } from '../../utils/postCat.utils';
 import { useRouter } from 'next/router';
 import Pagination from '../../components/Pagination/Pagination';
 import Spinner from '../../components/Spin/Spinner';
+import Seo from '../../components/Seo/Seo';
 
 
 const mapState = (state) => ({
@@ -74,10 +75,7 @@ export default function PostCat(props) {
 
   return (
     <>
-    <Head>
-      <title>{seo.title_seo}</title>
-      <meta name="description" content={seo.meta_description_seo}/>
-    </Head>
+    <Seo seoData={seo} />
     <div className={[styles.global_container].join(" ")}>
       
       <div className={[styles.global_content].join(" ")}>

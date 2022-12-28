@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import Pagination from '../../components/Pagination/Pagination';
 import Spinner from '../../components/Spin/Spinner';
 import FilterActionDate from '../../components/FilterActionDate/FilterActionDate';
+import Seo from '../../components/Seo/Seo';
 
 
 const mapState = (state) => ({
@@ -77,14 +78,9 @@ export default function ActionCat(props) {
 
 //TODO: Create dynamic checkbox list
 
-
-
   return (
     <>
-    <Head>
-      <title>{seo.title_seo}</title>
-      <meta name="description" content={seo.meta_description_seo}/>
-    </Head>
+    <Seo seoData={seo} />
     <div className={[styles.global_container].join(" ")}>
       
       <div className={[styles.global_content].join(" ")}>
@@ -92,7 +88,6 @@ export default function ActionCat(props) {
     
       <h1 className={styles.title}  dangerouslySetInnerHTML={{__html: title}}/>
 
-     
       <div className={[styles.content_wrapper].join(" ")}>
         <div className={styles.filter_container}>
           <div className={styles.filter_wrapper}>
