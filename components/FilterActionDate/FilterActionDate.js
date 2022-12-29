@@ -46,6 +46,7 @@ export default function FilterActionDate() {
     const dispatch = useDispatch();
     const {filter} = useSelector(mapState);
     const [isOpen, setIsOpen] = useState(false);
+    const dateselected = filter?.coming_actions ? '(Actions à venir)' :'(Actions passées)'
  
 
 
@@ -70,7 +71,7 @@ export default function FilterActionDate() {
     return (
         <div className={styles.global_container}>
             <div className={styles.btn_section_filter} onClick= {() => handleClickOpen()}>
-                <h2 className={styles.title}>Date</h2>
+                <h2 className={styles.title}>Date  <span className={styles.info_selected}>{dateselected}</span></h2>
                 <img className={[styles.icon, isOpen? styles.down : styles.up].join(" ")} src={'/chevron-down.svg'}/>
             </div>
             { 

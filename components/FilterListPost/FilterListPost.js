@@ -54,6 +54,7 @@ export default function FilterListPost({categoriesList}) {
     const {filter} = useSelector(mapState);
     const {cat} = filter;
     const [isOpen, setIsOpen] = useState(false);
+    const nbCatSelected = cat &&    Array.isArray(cat) && cat.length > 0 ? '('+cat.length+')' : ''; 
     const addCategoryOnFilter = (id) => {
         let newCat
         if(!cat.includes(id)){
@@ -89,7 +90,7 @@ export default function FilterListPost({categoriesList}) {
     return (
         <div className={styles.global_container}>
             <div className={styles.btn_section_filter} onClick= {() => handleClickOpen()}>
-                <h2 className={styles.title}>Catégorie</h2>
+                <h2 className={styles.title}>Catégories {nbCatSelected }</h2>
                 <img className={[styles.icon, isOpen? styles.down : styles.up].join(" ")} src={'/chevron-down.svg'}/>
             </div>
             { categoriesList && Array.isArray(categoriesList) &&
