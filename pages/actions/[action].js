@@ -100,7 +100,7 @@ export default function Actions(props) {
               <TokenBtnCatList listCat={taxinomie} />
             </div>
             <div className={styles.author_container}>
-              <h3 className={styles.author_text}>{author}</h3>
+          
             </div>
             <DateDisplayer rawDate={date.event_date}/>
             <h1

@@ -69,7 +69,7 @@ export default function Post(props) {
 
               <div className={styles.author_container}>
                 <h3 className={styles.author_text}>
-                  {author} - {date}
+                  Marizia Joisin - {date} 
                 </h3>
               </div>
 

@@ -16,7 +16,6 @@ const GenerateImages = ({nbImage, srcImage, altImage}) => {
         imagesList.push({src: srcImage, alt: altImage})
     }
     
-
     return (
         <>
             
