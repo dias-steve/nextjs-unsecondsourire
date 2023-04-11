@@ -111,9 +111,9 @@ export default function Header() {
                     <div className={styles.span_wrapper}><p>Faire un don</p></div>
                     <img src='/heart-black.svg'  />
                 </div>
-                <div className={[styles.wrapper_icon].join(" ")}>
+                {/*<div className={[styles.wrapper_icon].join(" ")}>
                     <img src='/search.svg'  />
-                </div>
+                </div>*/}
                 <div className={[styles.wrapper_icon, is_show_menu ? styles.menu_cross_wrapper : styles.menu_burger_wrapper].join(" ")}
                     onClick = {(e) => {handleClickMenu(e)} }
                 >
