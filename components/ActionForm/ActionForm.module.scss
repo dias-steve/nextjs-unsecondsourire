@@ -149,7 +149,9 @@ $breakpoint: 1300px;
     }
 
     .description_wrapper{
+        max-width: 200px;
         .description{
+            
             font-size: 0.9rem;
             font-family: $font-family-body;
             text-align: center;
