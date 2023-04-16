@@ -20,7 +20,7 @@ export default function ActionForm({ action }) {
     setWindowIsOpen(!windowIsopen);
   };
 
-  const desc = "Rejoinez nous pour défendre le droit de manifester";
+  const desc = "Tu veux participer à cette action? Envoie nous tes coordonnées! ";
 
 
   const MobileDock = ({}) => {

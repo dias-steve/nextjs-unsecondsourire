@@ -141,6 +141,7 @@ $breakpoint: 1300px;
         font-weight: 300;
         margin: 0;
         padding: 0;
+        text-align: center;
         @media screen and (max-width:$breakpoint){
             text-align: center;
             font-size: clamp(25px, 1.2vw, 50px);
@@ -151,6 +152,7 @@ $breakpoint: 1300px;
         .description{
             font-size: 0.9rem;
             font-family: $font-family-body;
+            text-align: center;
             @media screen and (max-width:$breakpoint){
                 font-size: 0.9rem;
                 text-align: center;
