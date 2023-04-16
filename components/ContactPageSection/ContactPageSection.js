@@ -28,7 +28,7 @@ export default function ContactPageSection({ content }) {
            </div>
 
             <div className={styles.wrapper_form}>
-                <h1 className={styles.title}> Nous-Contact </h1>
+                <h1 className={styles.title}> Nous-Contacter </h1>
                 <p className={styles.message} dangerouslySetInnerHTML= {{__html: message}}/>
                 <ContactList content = {content}/>
 
