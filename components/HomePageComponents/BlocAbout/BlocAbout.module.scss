@@ -40,7 +40,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+        height: 80px;
+        width: 80px;
         .image_flower{
             position: absolute;
             height: 100%;
@@ -50,6 +51,8 @@
 
         }
         .image_icon{
+            height: 100%;
+            width: 100%;
             position: relative;
             padding: 20px;
             z-index: 2;

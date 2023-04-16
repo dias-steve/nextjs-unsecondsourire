@@ -53,7 +53,7 @@ export default function Home(props) {
           />
         <BlocAbout gsap= {gsap} data= {homeData.bloc4_apropos}/>
 
-        <BlocPostList 
+        {/*<BlocPostList 
           data={homeData.bloc2_list_post} 
           title={'Nos Actualités'}
           linkPrimaryBtn={'./actualite'}
@@ -63,7 +63,7 @@ export default function Home(props) {
          
 
         
-        />
+  />*/}
           <BlocMembership gsap={gsap} data={homeData.bloc6_membership} />
           <BlocSocial mediaList= {generalSettings.external_links.media_list} />
       </div>

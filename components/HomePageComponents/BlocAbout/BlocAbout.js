@@ -31,7 +31,7 @@ const MissionSection = ({data, notShowLink}) => {
             <div className={styles.right_container}>
             <h2 className={styles.title_mission} dangerouslySetInnerHTML={{__html:title}}/>
             <p className={styles.decription_mission} dangerouslySetInnerHTML={{__html:description}}/>
-            { !notShowLink &&
+            { /*!notShowLink &&
             <div className={styles.btn_wrapper}>
                     <SecondBtn  
                             label={'Voir plus'}
@@ -40,7 +40,7 @@ const MissionSection = ({data, notShowLink}) => {
                      />
                     
             </div>
-}
+    */}
             </div>
         </div>
     )

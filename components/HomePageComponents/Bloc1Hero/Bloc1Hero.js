@@ -39,6 +39,11 @@ const GenerateImages = ({nbImage, srcImage, altImage}) => {
 
 export default function Bloc1Hero({data, gsap}) {
     const { title, description, thumbnail} = data;
+
+    const post = data.bloc1_post
+    const link = post ? '/'+post.post_type+'/'+post.ID : '/'
+
+    console.log(data)
     /** Annimation 1 */
     const bandRef = useRef(null);
     const imageRef = useRef(null);
@@ -61,14 +66,14 @@ export default function Bloc1Hero({data, gsap}) {
                 <div className={[styles.single_btn_wrapper, styles.btn_primary_wrapper].join(" ")}>   
                     <PrimaryBtn 
                     label={'Faire un don'}
-                    link={'/'}
+                    link={'/contact'}
                     color={'yellow'}
                     />
                 </div>
                 <div className={[styles.single_btn_wrapper, styles.btn_second_wrapper].join(" ")}>  
                     <SecondBtn
                         label={'En savoir plus'}
-                        link={'/'}
+                        link={link}
                         color={'black'}
                         
                 

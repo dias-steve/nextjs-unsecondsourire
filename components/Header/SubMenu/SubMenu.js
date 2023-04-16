@@ -18,10 +18,10 @@ export default function SubMenu() {
         <div className={styles.btn_list_wrapper}>
             <Btn label ='Accueil' link='/'/>
             <Btn label ='Nos Actions' link='/actioncat'/>
-            <Btn label ='Nos Actualités' link='/actualite'/>
+            {/*<Btn label ='Nos Actualités' link='/actualite'/>*/}
             <Btn label ='Devenir Membre' link='/member'/>
             <Btn label ='A propos' link='/about'/>
-            <Btn label ='Faire un don' link='/'/>
+            <Btn label ='Faire un don' link='/contact'/>
             <Btn label ='Nous contacter' link='/contact'/>
         </div>
         </div>
