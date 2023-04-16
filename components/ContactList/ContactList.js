@@ -8,6 +8,8 @@ export const ContactItem = ({title, description, link}) => {
 
 
         return (
+            <>
+            { description !== '' &&
             <div className={styles.global_contact_item}>
                 <h2 className={styles.title_item} dangerouslySetInnerHTML={{__html: title}}/>
                 {link ? 
@@ -19,6 +21,8 @@ export const ContactItem = ({title, description, link}) => {
                     <p className={ styles.description_item} dangerouslySetInnerHTML={{__html: description }}/>
                 }
             </div>
+                }
+            </>
         )
 
 
