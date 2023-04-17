@@ -49,6 +49,11 @@
             padding: 35px;
          
             width: clamp(100px, 25vw, 500px );
+            @media screen and (max-width: 800px) {
+                padding:0;
+                width: 0px;
+                
+            }
       
             .form_widget_wrapper{
                 position: sticky;
@@ -91,6 +96,7 @@
         max-width: 700px;
         color:$black;
        width: 100%;
+ 
 
 
     }
