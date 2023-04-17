@@ -49,7 +49,7 @@ const mapState = (state) => ({
 export default function Footer() {
   const { footerData } = useSelector(mapState);
   const { footer_menu_list, copyright } = footerData;
-  console.log(footer_menu_list);
+
   return (
     <div className={styles.global_container}>
       <div className={styles.global_content}>

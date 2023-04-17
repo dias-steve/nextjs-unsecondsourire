@@ -11,10 +11,7 @@ const handler = (req, res) => {
       })
         .then((reCaptchaRes) => reCaptchaRes.json())
         .then((reCaptchaRes) => {
-          console.log(
-            reCaptchaRes,
-            "Response from Google reCaptcha verification API"
-          );
+    
           if (reCaptchaRes?.score > 0.5) {
             // Save data to the database from here
             res.status(200).json({

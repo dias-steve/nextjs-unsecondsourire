@@ -28,7 +28,7 @@ export default function Post(props) {
   const dispatch = useDispatch();
   const generalSettings = props.generalSettings;
 
-  console.log(last_posts_list);
+
   /**
    * Initializing of the page
    */
@@ -36,7 +36,7 @@ export default function Post(props) {
     initializePage(dispatch, generalSettings);
   }, []);
 
-  console.log(props.postData);
+
   return (
     <>
       <Seo seoData={seo} />

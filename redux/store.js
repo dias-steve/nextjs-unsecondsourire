@@ -18,7 +18,7 @@ const initalState = {};
 const sagaMiddleware = createSagaMiddleware();
 
 // middleware
-const middleware = [thunk, logger, sagaMiddleware];
+const middleware = [thunk, sagaMiddleware];
 // creating store
 export let store = createStore(
   rootReducer,

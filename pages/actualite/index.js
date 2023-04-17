@@ -9,7 +9,7 @@ import Seo from '../../components/Seo/Seo';
 export default function Actualite(props) {
   const data = props.oneArticleData;
   const {content, seo} = data;
-  console.log(data)
+
   return (
     <>
   <Seo seoData={seo} />

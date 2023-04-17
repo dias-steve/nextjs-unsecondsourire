@@ -52,7 +52,7 @@ export default function Actions(props) {
 
   const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
 
-  console.log(last_posts_list);
+
   /**
    * Initializing of the page
    */
@@ -60,7 +60,7 @@ export default function Actions(props) {
     initializePage(dispatch, generalSettings);
   }, []);
 
-  console.log(props.postData);
+
   return (
     <>
   <Seo seoData={seo} />

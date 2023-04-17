@@ -43,7 +43,7 @@ export default function Bloc1Hero({data, gsap}) {
     const post = data.bloc1_post
     const link = post ? '/'+post.post_type+'/'+post.ID : '/'
 
-    console.log(data)
+
     /** Annimation 1 */
     const bandRef = useRef(null);
     const imageRef = useRef(null);

@@ -32,7 +32,7 @@ const { executeRecaptcha } = useGoogleReCaptcha();
       setIsLoading(true)
       if(inputsAreValid()){
         executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
-          console.log(gReCaptchaToken, "response Google reCaptcha server");
+
           submitEnquiryForm(gReCaptchaToken);
         });
        
@@ -60,11 +60,11 @@ const { executeRecaptcha } = useGoogleReCaptcha();
       })
         .then((res) => res.json())
         .then((res) => {
-          console.log(res, "response from backend");
+   
           if (res?.status === "success") {
-            console.log("Captchga good");
+        
             sendMessage();
-            console.log("send");
+      
       
           } else {
            
