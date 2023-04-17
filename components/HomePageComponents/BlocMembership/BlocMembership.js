@@ -52,6 +52,7 @@ export default function BlocMembership({data, gsap}) {
                           className={styles.image}
                           objectFit={'cover'}
                           layout="fill"
+                          priority
                     />}
                 </div>
             </div>

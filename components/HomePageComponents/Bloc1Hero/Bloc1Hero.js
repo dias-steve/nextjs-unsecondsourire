@@ -100,6 +100,7 @@ export default function Bloc1Hero({data, gsap}) {
                         className={styles.image}
                         objectFit={'cover'}
                         layout="fill"
+                        priority
                     />
 
                 </div>

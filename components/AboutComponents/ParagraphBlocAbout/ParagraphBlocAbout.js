@@ -30,6 +30,7 @@ export default function ParagraphBlocAbout({data, gsap}) {
                             className={styles.image}
                             objectFit={'cover'}
                             layout="fill"
+                            priority
                         /> 
 
                     </div>

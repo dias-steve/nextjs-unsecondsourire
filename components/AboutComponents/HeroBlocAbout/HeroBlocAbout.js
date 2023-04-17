@@ -27,6 +27,7 @@ export default function HeroBlocAbout({data}) {
                             className={styles.image}
                             objectFit={'cover'}
                             layout="fill"
+                            priority
                         /> 
 
                     </div>

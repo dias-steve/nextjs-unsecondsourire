@@ -88,6 +88,7 @@ export default function BlocAbout({data ,notShowBtn, notShowLink,gsap}) {
                                 className={styles.image}
                                 objectFit={'cover'}
                                 layout="fill"
+                                priority
                             />
                 }
                 </div>
@@ -111,6 +112,7 @@ export default function BlocAbout({data ,notShowBtn, notShowLink,gsap}) {
                                 className={styles.image}
                                 objectFit={'cover'}
                                 layout="fill"
+                                priority
                             />
                 }
                 </div>

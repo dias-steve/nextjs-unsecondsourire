@@ -20,6 +20,7 @@ export default function MemberPageSection({ content }) {
                                className={styles.image}
                                objectFit={'cover'}
                                layout="fill"
+                               priority
                            />
                }
                </div>
@@ -50,6 +51,7 @@ export default function MemberPageSection({ content }) {
                                className={styles.image}
                                objectFit={'cover'}
                                layout="fill"
+                               priority
                            />
                }
                </div>

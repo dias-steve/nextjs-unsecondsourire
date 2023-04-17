@@ -24,6 +24,7 @@ const BigArticle = ({data}) => {
               layout='fill'
               className={styles.image}
               objectFit={'cover'}
+              priority
             />
           }
           </a>
@@ -58,6 +59,7 @@ const ArticleBtn = ({data, nb}) =>{
             layout='fill'
             className={styles.image}
             objectFit={'cover'}
+            priority
           />
         }
       </div>

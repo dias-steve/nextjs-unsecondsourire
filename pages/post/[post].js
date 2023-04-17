@@ -50,6 +50,7 @@ export default function Post(props) {
                 className={styles.image}
                 objectFit={"cover"}
                 layout="fill"
+                priority
               />
             )}
           </div>

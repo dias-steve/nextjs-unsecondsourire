@@ -73,6 +73,7 @@ export default function Actions(props) {
               className={styles.image}
               objectFit={"cover"}
               layout="fill"
+              priority
             />
           )}
         </div>

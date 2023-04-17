@@ -101,6 +101,7 @@ export default function Header() {
                     layout="fill"
                     className={styles.image}
                     objectFit={'contain'}
+                    priority
                   />
             </div>
             </a>

@@ -61,6 +61,7 @@ export default function PostCard({data, color, gsap}) {
                                 className= {styles.image}
                                 objectFit={'cover'}
                                 layout="fill"
+                                priority
                             />
                         }
                         </div>

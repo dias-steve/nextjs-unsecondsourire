@@ -21,6 +21,7 @@ export default function ContactPageSection({ content }) {
                                className={styles.image}
                                objectFit={'cover'}
                                layout="fill"
+                               priority
                            />
                }
                </div>
@@ -43,6 +44,7 @@ export default function ContactPageSection({ content }) {
                                className={styles.image}
                                objectFit={'cover'}
                                layout="fill"
+                               priority
                            />
                }
                </div>
