@@ -3,7 +3,7 @@ import listpostTypes from "./listpost.types";
 export const INITIAL_STATE = {
     filter : {
         cat: [],
-        coming_actions: true,
+        coming_actions: false,
     },
     list_posts_raw: [],
     list_posts_result:[],

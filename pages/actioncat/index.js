@@ -100,9 +100,8 @@ export default function ActionCat(props) {
           {is_loading ?<div className={styles.spinner_wrapper}> <Spinner />  </div>: 
           <>
             <span className={styles.result_nb}>{nb_posts_found} action{nb_posts_found>1 && 's'} trouvée{nb_posts_found>1 && 's'}</span>
-            <BlocPostList  
+            <BlocPostList
               data = {{list_articles:list_posts_raw }}
-              
               />
             <div className={styles.pagination_container}>
               <Pagination />
