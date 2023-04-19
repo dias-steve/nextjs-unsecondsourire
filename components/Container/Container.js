@@ -3,6 +3,7 @@ import EnMaintenancePage from "../EnMaintenance/EnMaintenancePage";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import PopupRGPD from "../../features/PopupRGPD/components/PopupRGPD";
 
 const mapState = (state) => ({
   auth: state.auth.auth,
@@ -38,7 +39,7 @@ export default function Container(props) {
       ) : (
         <>
           <Header />
-
+          <PopupRGPD/>
           {props.children}
           <Footer />
         </>

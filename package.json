@@ -8,6 +8,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.2.0",
     "gsap": "^3.11.3",
     "next": "12.1.4",
